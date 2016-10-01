@@ -5,5 +5,5 @@
    * First Example
 * [Chapter 2 - Importing Content](chapter_2_-_importing_content.md)
    * [Importing glTF](importing_gltf.md)
-   * Importing OBJ
+   * [Importing OBJ](importing_obj.md)
 
