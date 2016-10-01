@@ -1,6 +1,6 @@
 # Importing .3DS
 
-A **Nintendo3DSGeometry** is a {{#crossLink "Geometry"}}{{/crossLink}} that's loaded from a
+A **Nintendo3DSGeometry** is a Geometry that's loaded from a
      <a href="https://en.wikipedia.org/wiki/Nintendo_3DS" target = "_other">Nintendo 3DS</a> file.
 
 ## Examples
