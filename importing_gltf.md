@@ -9,36 +9,6 @@
 |----------|---------|----------|-----------|----------|
 |[Entity Explorer Demo](http://xeoengine.org/examples/#demos_ui_explorer)|[Flying to Boundaries](http://xeoengine.org/examples/#boundaries_flyToBoundary)|[Buggy](http://xeoengine.org/examples/#importing_gltf_buggy)|[Reciprocating Saw](http://xeoengine.org/examples/#importing_gltf_ReciprocatingSaw)|[Duck](http://xeoengine.org/examples/#importing_gltf_duck)|
 
-
-Contents
-========
-
-  * [Introduction](#introduction)
-    * [Motivation](#motivation)
-  * [Techniques](#techniques)
-    * [Loading a glTF Model](#loading-a-gltf-model)
-      * [Subscribing to load completion](#subscribing-to-load-completion)
-      * [Switching to a different glTF file](#switching-to-a-different-gltf-file)
-    * [Accessing Model Components](#accessing-model-components)
-      * [Accessing transforms](#accessing-transforms)
-      * [Accessing materials](#accessing-materials)
-      * [Accessing entities](#accessing-entities)
-      * [Querying entity boundaries](#querying-entity-boundaries)
-      * [Visualizing entity boundaries](#visualizing-entity-boundaries)
-      * [Flying a camera to an entity](#flying-a-camera-to-an-entity)
-      * [Iterating over components](#iterating-over-components)
-      * [Finding components by type](#finding-components-by-type)
-    * [Querying a Model's Boundary](#querying-a-models-boundary)
-      * [Visualizing a model's boundary](#visualizing-a-models-boundary)
-    * [Attaching Transforms to Models](#attaching-transforms-to-models)
-      * [Attaching via constructor](#attaching-via-constructor)
-      * [Attaching after loading](#attaching-after-loading)
-      * [Animating transforms](#animating-transforms)
-    * [Optimizing glTF for Performance](#optimizing-gltf-for-performance)
-  * [Acknowledgements](#acknowledgements)
-
-
-
 # Introduction
 
 [glTF](https://github.com/KhronosGroup/glTF) (GL Transmission Format) is an efficient and extensible runtime asset 
