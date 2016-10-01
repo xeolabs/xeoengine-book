@@ -1,11 +1,10 @@
 # Picking entity surfaces at canvas coordinates
-
-As with the previous example, this type of picking fires a ray through the canvas, down the negative Z-axis,  to pick the first entity that intersects the ray. However, this time we'll get some geometric information about the  intersection. <br><br>
-
+As with the previous example, this type of picking fires a ray through the canvas, down the negative Z-axis, to pick the first entity that intersects the ray. However, this time we'll get some geometric information about the intersection.
 Reusing the scene that we created for the previous example, we'll now fire a ray through the canvas coordinates, this time  supplying a ````pickSurface```` flag, causing it to pick a 3D **position** on the surface of the entity:
 
-````javascriptvar hit = gearbox.scene.pick({
-    canvasPos: [500,400], pickSurface: true, // <<--------- Indicates that we want to pick on surface});````
+````javascript
+var hit = gearbox.scene.pick({      
+    canvasPos: [500,400],     pickSurface: true, // <<--------- Indicates that we want to pick on surface });````
 
 This time, in addition to the entity, the hit result will contain information about the position that we picked on the entity's surface:
 
