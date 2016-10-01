@@ -10,7 +10,6 @@
 * [Chapter 3 - Interaction](chapter_3_-_interaction.md)
     * [Camera Control](camera-control.md)
     * [Picking](picking.md)
-    * [Appendix A - Implementation Notes](appendix-a---implementation-notes.md)
 * [Appendix](appendix.md)
     * [Implementation Notes](implementation-notes.md)
-    
+
