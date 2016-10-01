@@ -6,4 +6,7 @@
 * [Chapter 2 - Importing Content](chapter_2_-_importing_content.md)
    * [Importing glTF](importing_gltf.md)
    * [Importing OBJ](importing_obj.md)
+* [Chapter 3 - Interaction](chapter_3_-_interaction.md)
+   * [Camera Control](camera-control.md)   
+   * [Picking](picking.md)   
 
