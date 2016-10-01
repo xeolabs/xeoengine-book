@@ -1,3 +1,8 @@
+# Ray-Picking Entities
+
+[![]({{ site.url }}/images/xeoengine/worldRayPicking.gif)](http://xeoengine.org/examples/#interaction_picking_raycasting_triangles) 
+<br>[Click to run](http://xeoengine.org/examples/#interaction_picking_raycasting_triangles) 
+
 # Ray-Picking Triangles
 
 World-space ray casting involves fire an arbitrarily-positioned ray through the scene in World-space, to pick 
@@ -46,5 +51,3 @@ the near projection plane, then unproject that ray to get a ray in the entity's 
 7. Find the intersection of the ray with the triangle in local space.
 8. Find the barycentric coordinates of the local-space intersection, then use those to interpolate within the triangle 
 to find the normal vector and UV coordinates at that position.  
-
-<br>
