@@ -12,6 +12,9 @@
     * [Canvas-Picking Triangles](canvas-picking-triangles.md)
     * [Ray-Picking Entities](ray-picking-entities.md)
     * [Ray-Picking Triangles](ray-picking-triangles.md)
+* [Chapter 4 - Effects](chapter_4_-_effects.md)
+    * [WebVR](webvr.md)
+    * [zSpace](zspace.md)
 * [Appendix](appendix.md)
     * [Implementation Notes](implementation-notes.md)
 
