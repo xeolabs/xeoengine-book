@@ -1,7 +1,7 @@
 # Importing glTF
 
 
-|[<img src="https://github.com/xeolabs/xeoengine/blob/master/assets/images/glTFGearbox.png" width="100%">](http://xeoengine.org/examples/#importing_gltf_gearbox)|
+|[<img src="http://xeoengine.org/assets/images/glTFGearbox.png" width="100%">](http://xeoengine.org/examples/#importing_gltf_gearbox)|
 |--------------------------|
 |xeoEngine [gearbox visualization](http://xeoengine.org/examples/#importing_gltf_gearbox), loaded from [sample model](https://github.com/KhronosGroup/glTF/tree/master/sampleModels/gearbox_assy) provided by the Khronos Group|
 
