@@ -5,10 +5,6 @@ An **ObjGeometry** is a {{#crossLink "Geometry"}}{{/crossLink}} that's loaded fr
 
 ## Examples
 
-<ul>
-<li>[Importing a Raptor from OBJ](../../examples/#importing_obj_raptor)</li>
-</ul>
-
 ## Usage
 
 ````javascript
