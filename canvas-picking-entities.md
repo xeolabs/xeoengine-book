@@ -1,4 +1,5 @@
-# Picking at Canvas Coordinates 
+# Canvas Picking Entities
+ 
 The most basic type of picking involves finding the closest entity at the given canvas coordinates. This is equivalent to firing a ray through the canvas, down the negative Z-axis, to find the closest intersecting entity. However, this type of  picking only finds the entity and does not return any information about the ray intersection.
 
 

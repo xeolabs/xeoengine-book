@@ -1,4 +1,4 @@
-# Picking entity surfaces at canvas coordinates
+# Canvas Picking Triangles
 
 As with the previous example, this type of picking fires a ray through the canvas, down the negative Z-axis, to pick the first entity that intersects the ray. However, this time we'll get some geometric information about the intersection.
 Reusing the scene that we created for the previous example, we'll now fire a ray through the canvas coordinates, this time  supplying a ````pickSurface```` flag, causing it to pick a 3D **position** on the surface of the entity:
