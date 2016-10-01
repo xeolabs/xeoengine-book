@@ -7,9 +7,10 @@
     * [Importing glTF](importing_gltf.md)
     * [Importing OBJ](importing_obj.md)
     * [Importing 3DS](importing_3ds.md)
-* [Chapter 3 - Interaction](chapter_3_-_interaction.md)
+* [Chapter 3 - Picking](chapter_3_-_interaction.md)
     * [Camera Control](camera-control.md)
     * [Picking](picking.md)
+    * [Picking at Canvas Coordinates](picking-at-canvas-coordinates.md)
 * [Appendix](appendix.md)
     * [Implementation Notes](implementation-notes.md)
 
