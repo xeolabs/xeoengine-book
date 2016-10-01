@@ -10,7 +10,8 @@
 * [Chapter 3 - Picking](chapter_3_-_interaction.md)
     * [Camera Control](camera-control.md)
     * [Picking](picking.md)
-    * [Picking at Canvas Coordinates](picking-at-canvas-coordinates.md)
+    * [Picking at Canvas Coords](picking-at-canvas-coordinates.md)
+    * [Picking with Ray Through Canvas](picking-with-ray-through-canvas.md)
 * [Appendix](appendix.md)
     * [Implementation Notes](implementation-notes.md)
 
