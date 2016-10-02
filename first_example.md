@@ -7,6 +7,7 @@ In this first tutorial we'll create the spinning torus shown in the screenshot b
 ## Creating the Scene
 
 First, include [xeoengine.min.js](https://github.com/xeolabs/xeoengine/tree/master/build) in your HTML page:
+
 ````html
 <script src="xeoengine.min.js"/>
 ````
@@ -41,6 +42,16 @@ the Entity to fall back on the [Scene](http://xeoengine.org/docs/classes/Scene.h
 the other components it needs (eg. [Camera](http://xeoengine.org/docs/classes/Camera.html), 
 [Lights](http://xeoengine.org/docs/classes/Lights.html) etc).
 
+## Editing the Scene
+
+You can edit **everything** within your [Scene]() dynamically, which is awesome for live coding. Create and destroy components, link or unlink them to each other, update their properties, and so on. Let's add a diffuse [Texture](http://xeoengine.org/docs/classes/Texture.html) map to our [PhongMaterial](http://xeoengine.org/docs/classes/PhongMaterial.html), which will immediately appear on our torus:
+
+````javascript
+material.diffuseMap = new XEO.Texture(scene, {
+    src: "textures/uvGrid2.jpg"
+});
+````
+
 ## Animating the Scene
 
 Animate [Scenes]() by updating properties on their components. Almost everything in xeoEngine fires change events that you can subscribe to, which is quite handy for scripting.
@@ -60,18 +71,5 @@ scene.on("tick", function () {
     var view = scene.camera.view;
     view.rotateEyeY(0.6);
     view.rotateEyeX(0.3);
-});
-````
-
-## Editing the Scene
-
-You can edit everything within your [Scene]() dynamically, at runtime. Create and destroy components, link or unlink
-them to each other, update their properties, and so on. Let's add a diffuse 
-[Texture](http://xeoengine.org/docs/classes/Texture.html) map to our [PhongMaterial](http://xeoengine.org/docs/classes/PhongMaterial.html),
-which will immediately appear on our torus:
-
-````javascript
-material.diffuseMap = new XEO.Texture(scene, {
-    src: "textures/uvGrid2.jpg"
 });
 ````
