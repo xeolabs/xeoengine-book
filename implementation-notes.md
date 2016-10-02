@@ -153,7 +153,7 @@ Tasks may be scheduled on xeoEngine using the ````scheduleTask```` method, like 
  XEO.scheduleTask(callback, scope);
 ````
 
-Using this public API method, the application layer can push its own tasks to the task queue, if desired, to have them executed within the per-frame time budget, alongside as the xeoEngine components' tasks.
+Using this public API method, the application layer can push its own tasks to the task queue, if desired, to have them executed within the per-frame time budget, alongside as the xeoEngine components' tasks. 
 
 ### Render Graph Compilation
 xeoEngine's scene graph is simple and logical to use, however that would make it inefficient to 
