@@ -1,6 +1,6 @@
 # Geometry
 
-A [Geometry](http://xeoengine.org/docs/classes/Geometry.html) component defines the shape of attached [Entites](http://xeoengine.org/docs/classes/Entity.html).
+A xeoEngine [Geometry](http://xeoengine.org/docs/classes/Geometry.html) component defines the shape of attached [Entites](http://xeoengine.org/docs/classes/Entity.html).
 
 Like everything in xeoEngine, all properties on a Geometry are dynamically editable. When no shape is specified, a Geometry will be a 2x2x2 box by default. A [Scene](http://xeoengine.org/docs/classes/Scene.html) provides a 2x2x2 box for [Entites](http://xeoengine.org/docs/classes/Entity.html) default to when they are not configured with a Geometry. A Geometry provides its local-space boundary as a [Boundary3D](http://xeoengine.org/docs/classes/Boundary3D.html).
 
