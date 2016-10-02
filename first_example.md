@@ -1,6 +1,6 @@
 # First Example
 
-In this first tutorial we'll create the spinning torus shown in the screenshot below. To show how scenes are dynamically editable, we'll create it incrementally: first we'll create the basic torus entity, then set it spinning, and then add texture. 
+In this first example we'll create the spinning torus shown in the screenshot below. To show how scenes are dynamically editable, we'll create it incrementally: first we'll create the basic torus entity, then set it spinning, and then add texture. 
         
 <a href="http://xeoengine.org/examples/#materials_fresnel_specular"><img src="http://xeoengine.org/assets/images/torus.png" width="500px"></a>
       
