@@ -4,7 +4,6 @@ This document is aimed at developers who want to know a little more about the in
 
 <img src="http://xeoengine.org/assets/images/blackboard.jpg" width="100%">
 
-
 ## API Design
 xeoEngine is abstract and data-driven on the outside, while performant on the inside. Like [SceneJS](http://scenejs.org), xeoEngine's design philosophy is to always try to ["program to the interface"](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)) (ie. its API), without sacrificing performance.  
 
@@ -13,6 +12,7 @@ Therefore, like many 3D engines, xeoEngine's implementation is layered like an o
 Consequently, much of xeoEngine's implementation is about efficiently synchronizing state between those layers, using a few common real-time rendering techniques, which I'll briefly summarize here.
 
 ## Components and Properties
+
 As described on the [website](http://xeoengine.org#concepts), a xeoEngine scene is a soup containing various components that are tied together into drawables by [Entities](http://xeoengine.org/docs/classes/Entity.html).
 
 <img src="http://xeoengine.org/assets/images/conceptScene.png">
@@ -58,7 +58,6 @@ var XEO.MyComponent = XEO.Component.extend({
     //...
 }
 ````
-
 Pretty much every property setter in xeoEngine will do the following: 
 
  1. reject redundant updates, 
@@ -67,7 +66,6 @@ Pretty much every property setter in xeoEngine will do the following:
  4. fire a change event, which always has the same name as the property.
 
 ## Performance
-
 
 ### Lazy evaluation
 xeoEngine lazy-computes things only when they are actually needed. An example of this are the boundaries of [Geometry's](http://xeoengine.org/docs/classes/Geometry) and [Entities](http://xeoengine.org/docs/classes/Entity). When you get,

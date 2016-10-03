@@ -2,7 +2,7 @@
 
 In this first example we'll create the spinning torus shown in the screenshot below. To show how scenes are dynamically editable, we'll create it incrementally: first we'll create the basic torus entity, then set it spinning, and then add texture. 
         
-<a href="http://xeoengine.org/examples/#materials_fresnel_specular"><img src="http://xeoengine.org/assets/images/torus.png" width="500px"></a>
+<a href="http://xeoengine.org/examples/#materials_fresnel_specular"><img src="http://xeoengine.org/assets/images/torus.png"></a>
       
 ## Creating the Scene
 
@@ -33,7 +33,7 @@ var entity = new XEO.Entity(scene, {
 ````
 <img src="http://xeoengine.org/assets/images/conceptScene.png">
 
-### Defaults
+#### Defaults
 
 xeoEngine provides defaults for pretty much everything, which means that we only need to create things wherever we need 
 to override those defaults. For our [Entity](http://xeoengine.org/docs/classes/Entity.html), we provided our 

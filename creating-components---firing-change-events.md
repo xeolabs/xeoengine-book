@@ -19,28 +19,17 @@ XEO.ColoredTorus = XEO.Component.extend({
     },
 
     _props: {
-
-        // The color of this ColoredTorus.
-
         color: {
-
             set: function (color) {
                 this._torus.material.diffuse = color || [0.5, 0.5, 0.5];
 
                 // Fire change events for the color property
                 this.fire("color", this._torus.material.diffuse);
             },
-
             get: function () {
                 return this._torus.material.diffuse;
             }
         }
-    },
-
-    _destroy: function () {
-        this._torus.geometry.destroy();
-        this._torus.material.destroy();
-        this._torus.destroy();
     }
 });
 ````

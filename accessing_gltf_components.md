@@ -1,4 +1,4 @@
-# Accessing glTF Components
+# Importing glTF - Accessing Components
 
 Once the Model has loaded, its Scene will contain various [Components](http://xeoengine.org/docs/classes/Component.html) 
 that represent the elements of the glTF file. We'll now access some of those components by ID, to query and update them 

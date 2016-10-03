@@ -1,4 +1,4 @@
-# Loading glTF
+# Importing glTF
 
 Load a glTF file by creating a [Model](http://xeoengine.org/docs/classes/Model.html) component:
 

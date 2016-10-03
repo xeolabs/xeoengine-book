@@ -1,4 +1,4 @@
-# ZSpace 
+# ZSpace Effect
 
 A **ZSpace** component makes its [Scene](http://xeoengine.org/docs/classes/Scene.html) viewable with a zSpace viewer.
 
