@@ -1,14 +1,12 @@
 A [PhongMaterial](http://xeoengine.org/docs/classes/PhongMaterial.html) is a type of [Material](http://xeoengine.org/docs/classes/Material.html) that defines the surface appearance of [Entities](http://xeoengine.org/docs/classes/Entity.html) using the Phong lighting model.
 
-A PhongMaterial has the following shading attributes:
+A PhongMaterial has the following shading properties:
 
  * ambient,
  * diffuse,
  * specular,
- * emissive, 
- * opacity and 
- * reflectivity
-
+ * emissive and 
+ * opacity 
 
 ```` javascript
  var entity = new XEO.Entity({
@@ -16,6 +14,7 @@ A PhongMaterial has the following shading attributes:
     geometry: new XEO.TorusGeometry()
 
     material: new XEO.PhongMaterial({
+
         ambient: [0.3, 0.3, 0.3],
         diffuse: [0.5, 0.5, 0.0],   
         specular: [1, 1, 1],
@@ -27,14 +26,57 @@ A PhongMaterial has the following shading attributes:
 
 ### Textures 
 
-A PhongMaterial applies its shading attributes unformly across a surface, but you can replace each of them with a [Texture](http://xeoengine.org/docs/classes/Texture.html) so that applies a pattern instead. 
+A PhongMaterial applies its shading properties unformly across a surface, but you can replace each of them with a [Texture](http://xeoengine.org/docs/classes/Texture.html) to apply it as a pattern. 
 
 In the following example, our PhongMaterial has a ````diffuse```` attribute, but also has a ````diffuseMap```` property set to a Texture. That Texture's pixel colors will then directly provide the diffuse color of each fragment across the Geometry surface, overriding the ````diffuse```` attribute.
 
+```` javascript
+ var entity = new XEO.Entity({
 
+    geometry: new XEO.TorusGeometry(),
+
+    material: new XEO.PhongMaterial({
+
+        ambient: [0.3, 0.3, 0.3],        
+        specular: [1, 1, 1],        
+        shininess: 80,         
+        opacity: 1.0 
+
+        diffuseMap: new XEO.Texture({
+            src: "diffuseMap.jpg"
+        })
+    })
+});
+
+ ````
 ### Fresnel Terms
 
-You can define Fresnel terms can be defined 
+ ````javascript
+ var entity = new XEO.Entity({
+
+     material: new XEO.PhongMaterial({
+
+        ambient: [0.3, 0.3, 0.3],                        
+        specular: [1, 1, 1],                
+        shininess: 80,                 
+        opacity: 1.0 
+
+        diffuseMap: new XEO.Texture({
+            src: "diffuseMap.jpg"
+        }),
+
+        specularFresnel: new XEO.Fresnel({
+            edgeColor: [1.0, 1.0, 1.0],
+            centerColor: [0.0, 0.0, 0.0],
+            power: 4,
+            bias: 0.2
+        })
+     }),
+
+     new XEO.TorusGeometry()
+ });
+````
+
 ### Geometry attributes 
 
 In addition to the surface appearance attributes, a PhongMaterial also defines a couple of attributes for Geometry appearance:
