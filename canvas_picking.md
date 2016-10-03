@@ -35,7 +35,7 @@ Internally, xeoEngine performs the following steps for this type of picking:
 2. Do a render pass to a hidden frame buffer, rendering each entity with a unique colour. Each colour is the RBGA-encoded index of the entity's position within xeoEngine's internal display list. 
 3. Read the colour from the framebuffer at the canvas coordinates, map the colour back to the entity. 
 
-# Canvas Picking Triangles
+## Canvas Picking Triangles
 
 As with the previous example, this type of picking fires a ray through the canvas, down the negative Z-axis, to pick the first entity that intersects the ray. However, this time we'll get some geometric information about the intersection.
 Reusing the scene that we created for the previous example, we'll now fire a ray through the canvas coordinates, this time  supplying a ````pickSurface```` flag, causing it to pick a 3D **position** on the surface of the entity:
