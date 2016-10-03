@@ -1,6 +1,6 @@
 # Importing OBJ
 
-An **ObjGeometry** is a Geometry that's loaded from a
+An ObjGeometry is a Geometry that's loaded from a
 <a href="https://en.wikipedia.org/wiki/Wavefront_.obj_file" target = "_other">Wavefront .OBJ</a> file.
 
 ## Examples

@@ -1,9 +1,11 @@
-# Ray-Picking Entities
+# Ray Casting
+
+### Ray Casting Entities
 
 [![]({{ site.url }}/images/xeoengine/worldRayPicking.gif)](http://xeoengine.org/examples/#interaction_picking_raycasting_triangles) 
 <br>[Click to run](http://xeoengine.org/examples/#interaction_picking_raycasting_triangles) 
 
-# Ray-Picking Triangles
+### Ray Casting Triangles
 
 World-space ray casting involves fire an arbitrarily-positioned ray through the scene in World-space, to pick 
  the first entity that intersects the ray. This is usually done when we want to interact with a 

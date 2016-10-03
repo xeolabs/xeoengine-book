@@ -1,15 +1,21 @@
-# Canvas Picking Entities
+# Canvas Picking 
  
+### Canvas Picking Entities 
 The most basic type of picking involves finding the closest entity at the given canvas coordinates. This is equivalent to firing a ray through the canvas, down the negative Z-axis, to find the closest intersecting entity. However, this type of  picking only finds the entity and does not return any information about the ray intersection.
 
 
 To start with, let's create a [Model](http://xeoengine.org/docs/classes/Model.html) component that loads a glTF model of a gearbox. We'll use this scene in all our examples.
 
 ````javascript 
-var gearbox = new XEO.Model({ src: "models/gltf/gearbox/gearbox_assy.gltf" });  
+var gearbox = new XEO.Model({ 
+    src: "models/gltf/gearbox/gearbox_assy.gltf" 
+});  
 
-// Our gearbox is not centered at the World-space origin, 
-// so we need to move the camera to arrange it in view var view = gearbox.scene.camera.view; 
+// Our gearbox is not centered at the 
+// World-space origin, so we need to 
+// move the camera to arrange it in view 
+
+var view = gearbox.scene.camera.view; 
 view.eye = [184.21, 10.54, -7.03]; 
 view.look = [159.20, 17.02, 3.21]; 
 view.up = [-0.15, 0.97, 0.13]; 
@@ -35,7 +41,7 @@ Internally, xeoEngine performs the following steps for this type of picking:
 2. Do a render pass to a hidden frame buffer, rendering each entity with a unique colour. Each colour is the RBGA-encoded index of the entity's position within xeoEngine's internal display list. 
 3. Read the colour from the framebuffer at the canvas coordinates, map the colour back to the entity. 
 
-## Canvas Picking Triangles
+### Canvas Picking Triangles
 
 As with the previous example, this type of picking fires a ray through the canvas, down the negative Z-axis, to pick the first entity that intersects the ray. However, this time we'll get some geometric information about the intersection.
 Reusing the scene that we created for the previous example, we'll now fire a ray through the canvas coordinates, this time  supplying a ````pickSurface```` flag, causing it to pick a 3D **position** on the surface of the entity:
