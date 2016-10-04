@@ -1,4 +1,4 @@
-# Creating Components - Making Serializable
+# Custom Components - Making Serializable
 
 ````javascript
 XEO.ColoredTorus = XEO.Component.extend({

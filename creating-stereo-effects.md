@@ -1,1 +1,1 @@
-# Creating Components - Stereo Effects
+# Custom Components - Stereo Effects

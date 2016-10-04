@@ -1,4 +1,4 @@
-# Creating Components - Managing Children
+# Custom Components - Managing Children
 
 ```javascript
 XEO.ColoredTorus = XEO.Component.extend({
