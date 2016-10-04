@@ -7,9 +7,6 @@
         "annotator"
     ],
     "pluginsConfig": {
-        "disqus": {
-            "shortName": "xeoEngine User Manual",
-            "useIdentifier": true
-        }
+       
     }
 }
