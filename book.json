@@ -6,7 +6,7 @@
         "search",
         "lunr",
         "sharing",
-        "-fontsettings"
+        "fontsettings"
     ],
     "pluginsConfig": {}
 }
