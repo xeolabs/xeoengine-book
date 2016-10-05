@@ -1,7 +1,8 @@
 {
     "plugins": [
         "comment",
-        "code-highlighter"
+        "code-highlighter",
+        "highlight"
     ],
     "pluginsConfig": {}
 }
