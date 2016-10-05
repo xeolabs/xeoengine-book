@@ -7,7 +7,7 @@
         "lunr",
         "sharing",
         "fontsettings",
-        "theme-default"
+        "-theme-default"
     ],
     "pluginsConfig": {}
 }
