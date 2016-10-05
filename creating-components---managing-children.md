@@ -1,5 +1,16 @@
 # Custom Components - Managing Children
 
+The component in the [previous custom component example]() needed to keep references to the child [Entity](), [Geometry]() and [PhongMaterial]() components that it created in its constructor, so that it could destroy them in its destructor.
+
+To make that less clunky, the [Component]() base class provides a convenient ````create()```` method which we can use to create child components that will be automatically destroyed when our component is destroyed.
+
+Take a look at the following example, which modifies the previous example to use the ````create()```` method.  See how we no longer need to destroy child components in the ````_destroy```` method (the destructor), which we don't even need anymore. 
+
+To keep code examples simple, we're going to use the ````create()```` method in the rest of our custom component examples.
+
+[[Run this example](http://xeoengine.org/examples/index.html#extending_customComponent_childCleanup)]
+
+
 ```javascript
 XEO.ColoredTorus = XEO.Component.extend({
 
@@ -35,7 +46,7 @@ XEO.ColoredTorus = XEO.Component.extend({
     _destroy: function () {
         // Nothing to do here! The child geometry, material 
         // and entity components will be  automatically destroyed 
-        // along with this ColoredTorus.
+        // along with this ColoredTorus. 
     }
 });
 ```

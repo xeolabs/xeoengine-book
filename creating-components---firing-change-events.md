@@ -1,9 +1,10 @@
 # Custom Components - Change Events
 
-In the previous example we defined a custom component type that renders a torus with a color that we can dynamically update. Often, we'd like to be able to observe changes to the values of our component's properties, so in this next example we'll learn how to make those properties fire change events.
+Our previous two custom component examples rendered a torus object, with a color property that we were able to dynamically update. Often, we'd like to observe updates on component properties, so in this next example we'll learn how to make them fire change events whenever they're updated.
 
-The source code for our next example is shown below, and you can also run it live [here](http://xeoengine.org/examples/index.html#extending_customComponent_changeEvents).
+Let's take the previous example and add a line of code to fire a "color" event each time the ````color```` property is updated.
 
+[[Run this example](http://xeoengine.org/examples/index.html#extending_customComponent_changeEvents)]
 
 ```javascript
 XEO.ColoredTorus = XEO.Component.extend({
@@ -39,7 +40,7 @@ XEO.ColoredTorus = XEO.Component.extend({
 });
 ```
 
-Now we'll instantiate our custom component:
+Now, to show how it works, let's instantiate our component:
 
 ```js
 var coloredTorus = new XEO.ColoredTorus({
@@ -47,7 +48,7 @@ var coloredTorus = new XEO.ColoredTorus({
 });
 ```
 
-Then we'll attach a change listener to its ````color```` property, which log updates to that property to a element in the page:
+Next, we'll attach a change listener to the ````color```` property, which will log value updates to an element in the page:
 
 ```js
 coloredTorus.on("color", function (color) {    
@@ -59,7 +60,7 @@ function log(msg) {
 }
 ```
 
-Finally, we'll periodically set the property to a random color, which will fire our change listener:
+Finally, we'll periodically set the property to a random color, which will fire our change listener each time:
 
 ```js
 setInterval(function () {
@@ -67,4 +68,4 @@ setInterval(function () {
 }, 1000);
 ```
 
-
+In the spirit of the [Open/Closed Principle](https://en.wikipedia.org/wiki/Open/closed_principle), pretty much everything in xeoEngine fires change events when updated, however your custom components don't neccessarily need to.
