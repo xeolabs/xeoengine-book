@@ -3,7 +3,8 @@
         "comment",
         "code-highlighter",
         "highlight",
-        "search"
+        "search",
+        "lunr"
     ],
     "pluginsConfig": {}
 }
