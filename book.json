@@ -1,8 +1,10 @@
 {
     "plugins": [
-        
-    ],
-    "pluginsConfig": {
-       
-    }
+        "disqus",
+        "youtube",
+        "katex",
+        "anchor-navigation",
+        "anchors",
+        "annotator"
+    ]
 }
