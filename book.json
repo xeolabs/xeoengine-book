@@ -1,6 +1,6 @@
 {
     "plugins": [
-        "-disqus",
+        "-disqus", 
         "youtube",
         "katex",
         "anchor-navigation",
