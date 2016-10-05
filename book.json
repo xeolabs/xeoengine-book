@@ -4,7 +4,8 @@
         "code-highlighter",
         "highlight",
         "search",
-        "lunr"
+        "lunr",
+        "sharing"
     ],
     "pluginsConfig": {}
 }
