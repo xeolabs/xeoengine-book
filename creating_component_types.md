@@ -1,10 +1,10 @@
-# Creating Component Types 
+# Creating a New Component Type 
 
 We can extend xeoEngine's component classes to create our own custom component types. The basic [Component](http://xeoengine.org/docs/classes/Component.html) class has various template methods which we can override in our component class to hook it into xeoEngine.
 
 Let's start simple, with a custom component that renders a torus with a color that we can dynamically update. Then in subsequent sections, we'll create versions of the component that plug into the various other bits of xeoEngine component functionality.
 
-## Creating a New Component Type
+## Creating the Component
 
 The source code for our first component is shown below. You can also run it live [here](http://xeoengine.org/examples/index.html#extending_customComponent_basic).
 
@@ -63,7 +63,7 @@ The ````_props```` section defines the component's public properties. On our com
 
 Finally, the ````_destroy```` mathod is the component's destructor. In our case, we're destroying the various child components that we created in the constructor. There's a way to create those child components so that they are destroyed automatically along with our component, which we'll also look at in one of the  following sections.
 
-### Instantiating the Component
+#### Instantiating the Component
 
 Let's instantiate our new component class: 
 
@@ -83,7 +83,7 @@ var coloredTorii = scene.types["XEO.ColoredTorus"];
 var myColoredTorus = coloredTorii["myColoredTorus"];
 ````
 
-### Updating the Component
+#### Updating the Component
 
 We can then update the value of that property like so:
 
@@ -91,7 +91,7 @@ We can then update the value of that property like so:
 coloredTorus.color = [0.5, 0.5 , 1.0];
 ````
 
-### Destroying the Component
+#### Destroying the Component
 
 Lastly, to destroy our component:
 
@@ -99,7 +99,7 @@ Lastly, to destroy our component:
 coloredTorus.destroy();
 ````
 
-## Managing Child Components
+## Managing Children
 
 The component in the previous example] needed to keep references to the child [Entity](), [Geometry]() and [PhongMaterial]() components that it created in its constructor, so that it could destroy them in its destructor.
 
@@ -152,7 +152,7 @@ XEO.ColoredTorus = XEO.Component.extend({
 });
 ```
 
-## Firing Change Events
+## Firing Events
 
 Our previous two custom component examples rendered a torus object, with a color property that we were able to dynamically update. Often, we'd like to observe updates on component properties, so in this next example we'll learn how to make them fire change events whenever they're updated.
 
@@ -290,6 +290,8 @@ XEO.ResizableTorus = XEO.Component.extend({
             }
         }
 
+        // Update the Geometry component
+
         this._torus.geometry.positions = positions;
         this._torus.geometry.normals = normals;
         this._torus.geometry.uv = uvs;
@@ -327,7 +329,7 @@ setInterval(function () {
 ```
 
 
-## Making the Component Serializable
+## Making Serializable
 
 ````javascript
 XEO.ColoredTorus = XEO.Component.extend({
