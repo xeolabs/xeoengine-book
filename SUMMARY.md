@@ -13,7 +13,6 @@
     * [Cameras](cameras.md)
     * [Collections](collections.md)
     * [Boundaries](boundaries.md)
-    * [Boundaries - Collection Boundaries](boundaries--collectionBoundary.md)
     * [Culling](culling.md)
 * [Chapter 2 - Importing](chapter_2_-_importing.md)
     * [Importing glTF](loading_gltf.md)
