@@ -1,6 +1,6 @@
 # Chapter 6 - Optimization
 
-How to get more juice out of xeoEngine.
+In this chapter you'll learn how to squeeze more performance out of xeoEngine.
 
 ### Contents
 

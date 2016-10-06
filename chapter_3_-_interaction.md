@@ -1,6 +1,6 @@
 # Chapter 3 - Picking
 
-How to select things in xeoEngine scenes.
+How to select things in xeoEngine.
 
 ### Contents
 
