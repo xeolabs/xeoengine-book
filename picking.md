@@ -63,7 +63,7 @@ xeoEngine performs the following steps for this type of picking: 1. User ray-pic
 For step (4) we lazy-compute geometry arrays to render individually-colored triangles for the entity. This does have a small performance hit the first time you pick the entity, but those arrays are retained for the entity and reused as you continue to pick it.
 
 
-## Ray Casting
+##Ray Casting
 
 #### Ray Casting Entities
 

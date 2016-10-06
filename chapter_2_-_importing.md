@@ -1,5 +1,7 @@
 # Chapter 2 - Importing Content
 
+How to load models into xeoEngine.
+
 ### Contents
 
 * [Importing glTF]() - How to load glTF models into xeoEngine.
