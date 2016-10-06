@@ -5,6 +5,7 @@
         "katex",
         "anchor-navigation",
         "anchors",
-        "annotator"
+        "annotator",
+        "code-highlighter"
     ]
 }

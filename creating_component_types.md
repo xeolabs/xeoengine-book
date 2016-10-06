@@ -1,4 +1,4 @@
-# Custom Components 
+# Creating Component Types 
 
 We can extend xeoEngine's component classes to create our own custom component types. The basic [Component](http://xeoengine.org/docs/classes/Component.html) class has various template methods which we can override in our component class to hook it into xeoEngine.
 
