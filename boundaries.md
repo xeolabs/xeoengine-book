@@ -1,7 +1,15 @@
 # Boundaries
 
-### 3D Boundaries
+Bounding boxes may be "axis-aligned," meaning that no matter what the orientation of the underlying shape, the sides of the bounding box are always parallel to the X/Y/Z places.  Or they may be "oriented," meaning that the box rotates with the underlying shape.  With axis-aligned bounding boxes (AABBs) the collision detection is extremely simple, but false-positives are more common.  With OBBs, false positives are less common since they fit more tightly to the underlying shapes, but the collision detection is a bit more complicated.
 
+### World Space Scene Boundary
+
+
+
+### World Space Entity Boundaries
+
+First, let's create an [Entity]() and give it a dynamically-updated [Translate]() viewing transform to make it 
+glide across the scene.  
 
 ```` javascript
 var entity = new XEO.Entity({
@@ -11,6 +19,16 @@ var entity = new XEO.Entity({
     })
 });
 ````
+
+````javascript
+var x = 0;
+entity.scene.on("tick", function() {
+    translate.xyz: [x, 0, 0];
+    x += 0.5;
+});
+````
+  
+Now we'll get the [Entity]()'s [WorldBoundary]() and subscribe to updates to its extents. 
 
 ````javascript
 var worldBoundary = entity.worldBoundary;
@@ -24,16 +42,22 @@ worldBoundary.on("updated", function() {
 });
 ````
 
-````javascript
-var x = 0;
-entity.scene.on("tick", function() {
-    translate.xyz: [x, 0, 0];
-    x += 0.5;
+
+### View Space Entity Boundaries
+
+ ````javascript
+var viewBoundary = entity.viewBoundary;
+  
+viewBoundary.on("updated", function() {
+    var obb = viewBoundary.obb;
+    var aabb = viewBoundary.aabb;
+    var center = viewBoundary.center;
+  
+    //...
 });
 ````
-  
-### 2D Boundaries
 
+### Canvas Space Entity Boundaries
 
 ```` javascript
 var canvasBoundary = entity.canvasBoundary;
@@ -45,8 +69,6 @@ canvasBoundary.on("updated", function() {
     //...
 });
 ````
-
-
 ````javascript
 var x = 0;
 entity.scene.on("tick", function() {
@@ -55,7 +77,7 @@ entity.scene.on("tick", function() {
 });
 ````
 
-### Collection Boundaries
+### World Space Collection Boundaries
 
 Sometimes we need to automatically track the collective World-space boundary of a group of [Entities](). The xeoEngine 
 [CollectionBoundary]() component makes this easy and efficient. 
@@ -138,4 +160,3 @@ That's thanks to the way that xeoEngine buffers everything as tasks to it's inte
 fires an "added" event for each Entity we add to it, which triggers the CollectionBoundary to schedule a rebuild task to 
 the queue **if it hasn't scheduled the rebuild already**. In short, this buffering system means that three Entity 
 additions to the [Collection]() triggers just one rebuild of the [CollectionBoundary](). 
-
