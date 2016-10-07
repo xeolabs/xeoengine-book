@@ -22,6 +22,7 @@
     * [Picking](picking.md)
         * [Canvas Picking](#canvas-picking)
         * [Ray Casting](#ray-casting)
+    * [Camera Control](camera-control.md)
 * [Chapter 4 - Effects](chapter_4_-_effects.md)
     * [WebVR Effect](zspace.md)
     * [zSpace Effect](webvr.md)
