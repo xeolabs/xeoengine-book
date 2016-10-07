@@ -1,2 +1,2 @@
-[xeoEngine](http://xeoengine.org) is a WebGL-based engine for quick and easy 3D visualization on the Web. In this tutorial I'll describe xeoEngine's GPU-assisted **picking** system, which allows you to efficiently select entities in complex 3D scenes.  
+# Camera Control
  
