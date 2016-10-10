@@ -30,7 +30,7 @@
     * [zSpace Effect](webvr.md)
 * [Chapter 5 - Extending](chapter_5_-_extending.md)
     * [Creating a New Component Type](creating_component_types.md)
-        * [Defining](#creating-a-new-component)
+        * [Defining the Component](#creating-a-new-component)
         * [Managing Children](#managing-child-components)
         * [Firing Events](#firing-change-events)
         * [Scheduling Tasks](#scheduling-tasks)

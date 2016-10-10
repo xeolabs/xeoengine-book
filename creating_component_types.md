@@ -4,7 +4,7 @@ We can extend xeogl's component classes to create our own custom component types
 
 Let's start simple, with a custom component that renders a torus with a color that we can dynamically update. Then in subsequent sections, we'll create versions of the component that plug into the various other bits of xeogl component functionality.
 
-## Creating the Component
+## Defining the Component
 
 The source code for our first component is shown below. You can also run it live [here](http://xeogl.org/examples/index.html#extending_customComponent_basic).
 
