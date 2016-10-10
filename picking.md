@@ -1,14 +1,14 @@
 # Picking
 
-## Canvas Picking 
- 
-#### Canvas Picking Entities 
-The most basic type of picking involves finding the closest entity at the given canvas coordinates. This is equivalent to firing a ray through the canvas, down the negative Z-axis, to find the closest intersecting entity. However, this type of  picking only finds the entity and does not return any information about the ray intersection.
+## Canvas Picking
 
+#### Canvas Picking Entities
+
+The most basic type of picking involves finding the closest entity at the given canvas coordinates. This is equivalent to firing a ray through the canvas, down the negative Z-axis, to find the closest intersecting entity. However, this type of  picking only finds the entity and does not return any information about the ray intersection.
 
 To start with, let's create a [Model](http://xeogl.org/docs/classes/Model.html) component that loads a glTF model of a gearbox. We'll use this scene in all our examples.
 
-````javascript 
+```javascript
 var gearbox = new xeogl.Model({ 
     src: "models/gltf/gearbox/gearbox_assy.gltf" 
 });  
@@ -21,23 +21,23 @@ var view = gearbox.scene.camera.view;
 view.eye = [184.21, 10.54, -7.03]; 
 view.look = [159.20, 17.02, 3.21]; 
 view.up = [-0.15, 0.97, 0.13]; 
-````
+```
 
-  Now let's attempt to pick the closest entity at the given canvas coordinates:  
+Now let's attempt to pick the closest entity at the given canvas coordinates:
 
-````javascript 
+```javascript
 var hit = gearbox.scene.pick({  canvasPos: [500,400] });
-````
+```
 
- If we hit an entity, then xeogl will return a hit result containing a reference to the entity: 
+If we hit an entity, then xeogl will return a hit result containing a reference to the entity:
 
-````javascript 
+```javascript
 if (hit) { 
    var entity = hit.entity;  
 }
-````
+```
 
-Internally, xeogl performs the following steps for this type of picking:  
+Internally, xeogl performs the following steps for this type of picking:
 
 1. User picks at given canvas coordinates. 
 2. Do a render pass to a hidden frame buffer, rendering each entity with a unique colour. Each colour is the RBGA-encoded index of the entity's position within xeogl's internal display list. 
@@ -46,9 +46,9 @@ Internally, xeogl performs the following steps for this type of picking:
 #### Canvas Picking Triangles
 
 As with the previous example, this type of picking fires a ray through the canvas, down the negative Z-axis, to pick the first entity that intersects the ray. However, this time we'll get some geometric information about the intersection.
-Reusing the scene that we created for the previous example, we'll now fire a ray through the canvas coordinates, this time  supplying a ````pickSurface```` flag, causing it to pick a 3D **position** on the surface of the entity:
+Reusing the scene that we created for the previous example, we'll now fire a ray through the canvas coordinates, this time  supplying a `pickSurface` flag, causing it to pick a 3D **position** on the surface of the entity:
 
-````javascript
+```javascript
 var hit = gearbox.scene.pick({      
     canvasPos: [500,400],     pickSurface: true, // <<--------- Indicates that we want to pick on surface });````
 
@@ -90,7 +90,7 @@ var hit = scene.pick({
 if (hit) { // Picked an Entity with the ray
 
     // Hit result contains the same properties as the previous example    
-    
+
      var entity = hit.entity;        // Entity we picked
      var primitive = hit.primitive;  // Type of primitive we picked, usually "triangles"
      var primIndex = hit.primIndex;  // Triangle's first index within geometry indices
@@ -102,19 +102,20 @@ if (hit) { // Picked an Entity with the ray
      var normal = hit.normal;        // Interpolated normal vector within the triangle
      var uv = hit.uv;                // Interpolated UVs within the triangle
 }
-````
+```
 
-xeogl performs the following steps for this type of picking: 
- 
+xeogl performs the following steps for this type of picking:
+
 1. User ray-picks at given canvas coordinates.
 2. Do a render pass to a hidden frame buffer, rendering each entity with a unique colour. Each colour is the RBGA-encoded 
-index of the entity within xeogl's internal display list.
+  index of the entity within xeogl's internal display list.
 3. Read the colour from the framebuffer at the canvas coordinates, map the colour back to the entity. 
 4. Clear the framebuffer, and render a second render pass, this time rendering only the triangles of the picked entity, 
-each with a unique color. Each colour is the RBGA-encoded index of the triangle within the entity's geometry.
+  each with a unique color. Each colour is the RBGA-encoded index of the triangle within the entity's geometry.
 5. Read the colour from the framebuffer at the canvas coordinates, map the colour back to the triangle.
 6. Now that we have the entity and the triangle, make a ray in clip-space from the eye position that passes through 
-the near projection plane, then unproject that ray to get a ray in the entity's local coordinate space.
+  the near projection plane, then unproject that ray to get a ray in the entity's local coordinate space.
 7. Find the intersection of the ray with the triangle in local space.
 8. Find the barycentric coordinates of the local-space intersection, then use those to interpolate within the triangle 
-to find the normal vector and UV coordinates at that position.  
+  to find the normal vector and UV coordinates at that position.  
+
