@@ -30,8 +30,8 @@ A **ZSpace** component makes its [````Scene````](http://xeogl.org/docs/classes/S
 
 ## Usage
 
- In the following example we're going to set up a ZSpace-viewable scene with ````xeogl````, defining the scene step-by-step to
- emphasize the plug-and-play design of ````xeogl````'s API.
+ In the following example we're going to set up a ZSpace-viewable scene with xeogl, defining the scene step-by-step to
+ emphasize the plug-and-play design of xeogl's API.
 
 #### 1. Create an entity
 

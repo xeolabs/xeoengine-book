@@ -1,6 +1,6 @@
 # Chapter 5 - Extending
 
-In this chapter you'll learn how to extend ````xeogl```` by creating custom component types. 
+In this chapter you'll learn how to extend xeogl by creating custom component types. 
 
 ###Contents
 

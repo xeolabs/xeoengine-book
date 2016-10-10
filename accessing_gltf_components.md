@@ -50,7 +50,7 @@ gear53.visibility.visible = false;
 
 Note the format of the Entity's ID: `<Model ID>#<glTF node ID>.entity.<glTF mesh index>`
 
-A glTF scene node may contain multiple meshes, and for each of those ````xeogl```` will create an individual Entity. As 
+A glTF scene node may contain multiple meshes, and for each of those xeogl will create an individual Entity. As 
 before, the part before the hash is the ID of the Model, which is then followed by the ID of the glTF node, then "entity" 
 to signify that this is an Entity ID, then finally an index to differentiate the Entity from those loaded from other 
 meshes on the same glTF node.
@@ -64,7 +64,7 @@ the glTF node.
 We can query an Entity's boundary within the Local, World, View and Canvas coordinate systems, and also attach a callbacks \(TODO\)
 
 **Local-space** is the 3D coordinate system that's local to the an Entity's [Geometry](http://xeogl.org/docs/classes/Geometry.html), ie. before modelling transforms are 
-applied. Each Entity provides its Local boundary as a [Boundary3D](http://````xeogl````.org/docs/classes/Boundary3D.html), from 
+applied. Each Entity provides its Local boundary as a [Boundary3D](http://xeogl.org/docs/classes/Boundary3D.html), from 
 which we can then get OBB and AABB representations:
 
 ```javascript
@@ -101,11 +101,11 @@ var viewBoundary = gear53.viewBoundary;
 
 World-space Boundary3Ds automatically update whenever their Entity's Geometries or modelling Transforms are updated. View-space 
 Boundary3Ds automatically update whenever their Entity's Geometries, modelling Transforms or associated 
-[Camera](http://````xeogl````.org/docs/classes/Camera.html)'s view transformations are updated. Subscribe to updates on those 
+[Camera](http://xeogl.org/docs/classes/Camera.html)'s view transformations are updated. Subscribe to updates on those 
 in the same way as shown above for Local-space Boundaries.
 
 **Canvas-Space** is the 2D canvas coordinate system after modelling, viewing and projection transforms are applied. Each 
-Entity provides its Canvas boundary as a [Boundary2D](http://````xeogl````.org/docs/classes/Boundary2D.html), which provides 
+Entity provides its Canvas boundary as a [Boundary2D](http://xeogl.org/docs/classes/Boundary2D.html), which provides 
 a 2D AABB representation, along with the center point.
 
 ```javascript
@@ -128,16 +128,16 @@ canvasBoundary.on("updated", function() {
 
 ### Visualizing glTF entity boundaries
 
-To visualize the World-space [Boundary3D](http://````xeogl````.org/docs/classes/Boundary3D.html) of our 
-Entity, simply create an Entity with a [BoundaryGeometry](http://````xeogl````.org/docs/classes/BoundaryGeometry.html) that's 
+To visualize the World-space [Boundary3D](http://xeogl.org/docs/classes/Boundary3D.html) of our 
+Entity, simply create an Entity with a [BoundaryGeometry](http://xeogl.org/docs/classes/BoundaryGeometry.html) that's 
 attached to our Entity's World-space Boundary3D:
 
 ```javascript
-new ````xeogl````.Entity({
-    geometry: new ````xeogl````.BoundaryGeometry({
+new xeogl.Entity({
+    geometry: new xeogl.BoundaryGeometry({
         boundary: gear53.worldBoundary
     }),
-    material: new ````xeogl````.PhongMaterial({
+    material: new xeogl.PhongMaterial({
         diffuse: [1,0,0],
         lineWidth: 2
     })
@@ -148,18 +148,18 @@ That Entity will render the Boundary3D as a wireframe box which will automatical
 
 ### Flying cameras to glTF entities
 
-Use a [CameraFlight](http://````xeogl````.org/docs/classes/CameraFlight.html) to fly 
-the [Camera](http://````xeogl````.org/docs/classes/Camera.html) to look at entities:
+Use a [CameraFlight](http://xeogl.org/docs/classes/CameraFlight.html) to fly 
+the [Camera](http://xeogl.org/docs/classes/Camera.html) to look at entities:
 
 ```javascript
-var cameraFlight = new ````xeogl````.CameraFlight(); 
+var cameraFlight = new xeogl.CameraFlight(); 
 cameraFlight.flyTo(gear53);
 ```
 
 This CameraFlight is flying the default scene Camera to the World-space boundary of our gear Entity. CameraFlights are 
 pretty flexible - they can be set up to control different Cameras, as well as fly to anything that provides an AABB or OBB.
 
-See a live example of this [here](http://````xeogl````.org/examples/#boundaries_flyToBoundary).
+See a live example of this [here](http://xeogl.org/examples/#boundaries_flyToBoundary).
 
 ### Iterating over glTF components
 

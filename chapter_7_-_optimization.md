@@ -1,6 +1,6 @@
 # Chapter 6 - Optimization
 
-In this chapter you'll learn how to squeeze more performance out of ````xeogl````.
+In this chapter you'll learn how to squeeze more performance out of xeogl.
 
 ### Contents
 
