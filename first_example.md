@@ -13,7 +13,7 @@ First, include [xeogl.min.js](https://github.com/xeolabs/xeogl/tree/master/build
 ````
 
 Next, create the 3D scene as an entity-component graph, as shown in the diagram below. Note how a
-[Scene](http://xeogl.org/docs/classes/Scene.html) is basically a container 
+[````Scene````](http://xeogl.org/docs/classes/Scene.html) is basically a container 
 of [Components](http://xeogl.org/docs/classes/Component.html) that are tied together 
 by [Entities](http://xeogl.org/docs/classes/Entity.html).
 
@@ -38,13 +38,13 @@ var entity = new xeogl.Entity(scene, {
 xeogl provides defaults for pretty much everything, which means that we only need to create things wherever we need 
 to override those defaults. For our [Entity](http://xeogl.org/docs/classes/Entity.html), we provided our 
 own [PhongMaterial](http://xeogl.org/docs/classes/PhongMaterial.html) and [Geometry](http://xeogl.org/docs/classes/Geometry.html) components, leaving
-the Entity to fall back on the [Scene](http://xeogl.org/docs/classes/Scene.html)'s default flyweight instances for all 
+the Entity to fall back on the [````Scene````](http://xeogl.org/docs/classes/Scene.html)'s default flyweight instances for all 
 the other components it needs (eg. [Camera](http://xeogl.org/docs/classes/Camera.html), 
 [Lights](http://xeogl.org/docs/classes/Lights.html) etc).
 
 ## Editing the Scene
 
-You can edit **everything** within your [Scene]() dynamically, which is awesome for live coding. Create and destroy components, link or unlink them to each other, update their properties, and so on. Let's add a diffuse [Texture](http://xeogl.org/docs/classes/Texture.html) map to our [PhongMaterial](http://xeogl.org/docs/classes/PhongMaterial.html), which will immediately appear on our torus:
+You can edit **everything** within your [````Scene````]() dynamically, which is awesome for live coding. Create and destroy components, link or unlink them to each other, update their properties, and so on. Let's add a diffuse [Texture](http://xeogl.org/docs/classes/Texture.html) map to our [PhongMaterial](http://xeogl.org/docs/classes/PhongMaterial.html), which will immediately appear on our torus:
 
 ````javascript
 material.diffuseMap = new xeogl.Texture(scene, {

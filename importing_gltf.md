@@ -14,27 +14,27 @@
 [glTF](https://github.com/KhronosGroup/glTF) (GL Transmission Format) is an efficient and extensible runtime asset 
 delivery format that bridges the gap between content authoring tools and WebGL/OpenGL-based viewing applications. 
 
-[xeogl](http://xeogl.org) is an open-source (MIT license) WebGL-based 3D visualization engine which supports glTF as its 
-native data format. xeogl intentionally does not (yet) load animations, cameras and lights from glTF. Instead, it 
+[````xeogl````](http://xeogl.org) is an open-source (MIT license) WebGL-based 3D visualization engine which supports glTF as its 
+native data format. ````xeogl```` intentionally does not (yet) load animations, cameras and lights from glTF. Instead, it 
 focuses on loading **static models** while allowing us to access their components via its scene graph API, so that we can 
-programmatically rig them with our own tweens, lights, cameras and so on. Also, xeogl (currently) ignores glTF shaders, 
+programmatically rig them with our own tweens, lights, cameras and so on. Also, ````xeogl```` (currently) ignores glTF shaders, 
 opting instead to rely on its own internally-generated shaders.  
   
 In this tutorial, we're going to load the sample gearbox model (see screenshot above) and show how to interact with its elements 
-via the xeogl API. We've added IDs to some of the elements within the glTF file so that we can find them within the 
-xeogl scene graph.
+via the ````xeogl```` API. We've added IDs to some of the elements within the glTF file so that we can find them within the 
+````xeogl```` scene graph.
 
-If you're not already familiar with xeogl, I recommend first 
+If you're not already familiar with ````xeogl````, I recommend first 
 reading [Getting Started](https://github.com/xeolabs/xeogl/wiki/Getting-Started). Also, you can get finer details on 
-each of the xeogl components in the 
+each of the ````xeogl```` components in the 
 [API documentation](http://xeogl.org/docs/). And if you find anything broken or missing, please hit 
 the [issue tracker](https://github.com/xeolabs/xeogl/issues).  
 
 ## Motivation
 
 * Load CAD parts assemblies from glTF
-* Access loaded entities via the xeogl API to dynamically update their transforms, visibility and appearance
-* Query and track the Model, World, View and Canvas-space boundaries of entities via the xeogl API  
+* Access loaded entities via the ````xeogl```` API to dynamically update their transforms, visibility and appearance
+* Query and track the Model, World, View and Canvas-space boundaries of entities via the ````xeogl```` API  
  
 # Techniques
 
@@ -49,8 +49,8 @@ var gearbox = new xeogl.Model({
 });
 ````
 
-We've created this particular Model within xeogl's default [Scene](http://xeogl.org/docs/classes/Scene.html), 
-since we didn't specify a Scene to its constructor. Internally, xeogl has lazy-created the default Scene at this point, 
+We've created this particular Model within ````xeogl````'s default [````Scene````](http://xeogl.org/docs/classes/Scene.html), 
+since we didn't specify a Scene to its constructor. Internally, ````xeogl```` has lazy-created the default Scene at this point, 
 along with its HTML canvas, which fills the available space in the page. We use the default Scene in most examples in 
 order to keep the code simple. 
   
@@ -74,7 +74,7 @@ To switch a Model to a different glTF file, simply update its ````src```` proper
 ````javascript
 gearbox.src = "models/gltf/buggy/buggy.gltf"
 ````
-Recall that almost everything in xeogl is dynamically editable. 
+Recall that almost everything in ````xeogl```` is dynamically editable. 
 
 ## Accessing Model Components
 Once the Model has loaded, its Scene will contain various [Components](http://xeogl.org/docs/classes/Component.html) 
@@ -127,7 +127,7 @@ gear53.visibility.visible = false;
 
 Note the format of the Entity's ID: ````<Model ID>#<glTF node ID>.entity.<glTF mesh index>````
  
-A glTF scene node may contain multiple meshes, and for each of those xeogl will create an individual Entity. As 
+A glTF scene node may contain multiple meshes, and for each of those ````xeogl```` will create an individual Entity. As 
 before, the part before the hash is the ID of the Model, which is then followed by the ID of the glTF node, then "entity" 
 to signify that this is an Entity ID, then finally an index to differentiate the Entity from those loaded from other 
 meshes on the same glTF node.
@@ -359,7 +359,7 @@ See a live example of this [here](http://xeogl.org/examples/#importing_gltf_tech
 
 ### Attaching after loading
 
-Alternatively, following xeogl's emphasis on complete scene mutability, existing Model instances can be dynamically 
+Alternatively, following ````xeogl````'s emphasis on complete scene mutability, existing Model instances can be dynamically 
 attached to [Transform](http://xeogl.org/docs/classes/Transform.html) hierarchies at any time: 
 
 ````javascript
@@ -402,13 +402,13 @@ buggyRotation.angle = 45;
 
 ## Optimizing glTF for Performance
 
-TODO: Notes on how best to structure glTF for fast rendering on xeogl
+TODO: Notes on how best to structure glTF for fast rendering on ````xeogl````
 
 # Acknowledgements
 
 * The [Khronos Group](https://github.com/KhronosGroup) and the [glTF](https://github.com/KhronosGroup/glTF) project 
 * [Patrick Cozzi](https://github.com/pjcozzi) and [Tony Parisi](https://github.com/tparisi) for the glTF specification and accompanying tutorials
-* Tony Parisi for the [glTF parsers](https://github.com/KhronosGroup/glTF/tree/master/loaders) on which xeogl's parser is based   
+* Tony Parisi for the [glTF parsers](https://github.com/KhronosGroup/glTF/tree/master/loaders) on which ````xeogl````'s parser is based   
 
 
 

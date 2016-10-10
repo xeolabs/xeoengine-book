@@ -1,12 +1,12 @@
 # ZSpace Effect
 
-A **ZSpace** component makes its [Scene](http://xeogl.org/docs/classes/Scene.html) viewable with a zSpace viewer.
+A **ZSpace** component makes its [````Scene````](http://xeogl.org/docs/classes/Scene.html) viewable with a zSpace viewer.
 
-* Plug-and-play: just create a ZSpace component within your xeogl [Scene](http://xeogl.org/docs/classes/Scene.html) to make it viewable with a ZSpace display.
+* Plug-and-play: just create a ZSpace component within your xeogl [````Scene````](http://xeogl.org/docs/classes/Scene.html) to make it viewable with a ZSpace display.
 * Activate or disable the ZSpace component at any time to switch between zSpace mode and normal mono viewing mode.
 * Requires WebGL2 and WebVR support, which you'll have if you're running on a zSpace viewer.
-* Attaches to a [Camera](http://xeogl.org/docs/classes/Camera.html), defaults to its [Scene](http://xeogl.org/docs/classes/Scene.html)'s default
- [Scene](http://xeogl.org/docs/classes/Scene.html#property_camera) if none is specified.
+* Attaches to a [Camera](http://xeogl.org/docs/classes/Camera.html), defaults to its [````Scene````](http://xeogl.org/docs/classes/Scene.html)'s default
+ [````Scene````](http://xeogl.org/docs/classes/Scene.html#property_camera) if none is specified.
 * Don't attach different view or projection transform components to the [Camera](http://xeogl.org/docs/classes/Camera.html) while the ZSpace component is active.
 * You can however update the [Camera](http://xeogl.org/docs/classes/Camera.html)'s view transformation at any time, to move the
  viewpoint around.
@@ -36,9 +36,9 @@ A **ZSpace** component makes its [Scene](http://xeogl.org/docs/classes/Scene.htm
 #### 1. Create an entity
 
  First we'll create a simple torus-shaped [Entity](http://xeogl.org/docs/classes/Entity.html), which will be within xeogl's default
- [Scene](http://xeogl.org/docs/classes/Scene.html), since we're not defining the [Scene](http://xeogl.org/docs/classes/Scene.html) component
+ [````Scene````](http://xeogl.org/docs/classes/Scene.html), since we're not defining the [````Scene````](http://xeogl.org/docs/classes/Scene.html) component
  explicitly. Our [Entity](http://xeogl.org/docs/classes/Entity.html) is also implicitly connected to the
- [Scene](http://xeogl.org/docs/classes/Scene.html)'s default [Camera](http://xeogl.org/docs/classes/Camera.html), since we didn't create
+ [````Scene````](http://xeogl.org/docs/classes/Scene.html)'s default [Camera](http://xeogl.org/docs/classes/Camera.html), since we didn't create
  a [Camera](http://xeogl.org/docs/classes/Camera.html) for it either.
 
  ````javascript
@@ -57,8 +57,8 @@ A **ZSpace** component makes its [Scene](http://xeogl.org/docs/classes/Scene.htm
  At this point we've got a textured torus floating in the middle of the canvas (which is also created automatically
  since we didn't specify one). Now we'll create a
  [CameraControl](http://xeogl.org/docs/classes/CameraControl.html), which allows us to move our viewpoint around with the mouse and
- keyboard. This component is also within xeogl's default [Scene](http://xeogl.org/docs/classes/Scene.html) and connected to the
- [Scene](http://xeogl.org/docs/classes/Scene.html)'s default [Camera](http://xeogl.org/docs/classes/Camera.html).
+ keyboard. This component is also within xeogl's default [````Scene````](http://xeogl.org/docs/classes/Scene.html) and connected to the
+ [````Scene````](http://xeogl.org/docs/classes/Scene.html)'s default [Camera](http://xeogl.org/docs/classes/Camera.html).
 
  ````javascript
  new CameraControl();
@@ -66,7 +66,7 @@ A **ZSpace** component makes its [Scene](http://xeogl.org/docs/classes/Scene.htm
 
 #### 3. Enable ZSpace viewing
 
-Now we can orbit, pan and zoom around the torus with the mouse and keyboard. Let's view it on a ZSpace display by simply dropping a ZSpace component into our default [Scene](http://xeogl.org/docs/classes/Scene.html).
+Now we can orbit, pan and zoom around the torus with the mouse and keyboard. Let's view it on a ZSpace display by simply dropping a ZSpace component into our default [````Scene````](http://xeogl.org/docs/classes/Scene.html).
 
  ````javascript
  var zspace = new ZSpace();

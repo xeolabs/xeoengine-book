@@ -9,7 +9,7 @@ var gearbox = new xeogl.Model({
 });
 ```
 
-We've created this particular Model within xeogl's default [Scene](http://xeogl.org/docs/classes/Scene.html), 
+We've created this particular Model within xeogl's default [````Scene````](http://xeogl.org/docs/classes/Scene.html), 
 since we didn't specify a Scene to its constructor. Internally, xeogl has lazy-created the default Scene at this point, 
 along with its HTML canvas, which fills the available space in the page. We use the default Scene in most examples in 
 order to keep the code simple.

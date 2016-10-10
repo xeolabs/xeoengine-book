@@ -75,7 +75,7 @@ var coloredTorus = new xeogl.ColoredTorus({
 
 That's going to call our ````_init()```` method, passing in an initial value for ````color````, which gets passed into the setter method for that property.
 
-Since we didn't explicitly provide a [Scene](http://xeogl.org/docs/classes/Scene.html) for our component, xeogl will create it within its default Scene, which it instantiates on-demand as soon as it's needed. Let's get that Scene off our component, then find our component by its type within that Scene:
+Since we didn't explicitly provide a [````Scene````](http://xeogl.org/docs/classes/Scene.html) for our component, xeogl will create it within its default Scene, which it instantiates on-demand as soon as it's needed. Let's get that Scene off our component, then find our component by its type within that Scene:
 
 ````javascript
 var scene = coloredTorus.scene;

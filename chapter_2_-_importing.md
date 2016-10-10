@@ -1,6 +1,6 @@
 # Chapter 2 - Importing Content
 
-How to load models into xeogl.
+How to load models into ````xeogl````.
 
 ### Contents
 

@@ -1,8 +1,8 @@
 # Geometry
 
-A xeogl [Geometry](http://xeogl.org/docs/classes/Geometry.html) component defines the shape of attached [Entites](http://xeogl.org/docs/classes/Entity.html).
+A ````xeogl```` [Geometry](http://xeogl.org/docs/classes/Geometry.html) component defines the shape of attached [Entites](http://xeogl.org/docs/classes/Entity.html).
 
-Like everything in xeogl, all properties on a Geometry are dynamically editable. When no shape is specified, a Geometry will be a 2x2x2 box by default. A [Scene](http://xeogl.org/docs/classes/Scene.html) provides a 2x2x2 box for [Entites](http://xeogl.org/docs/classes/Entity.html) default to when they are not configured with a Geometry. A Geometry provides its local-space boundary as a [Boundary3D](http://xeogl.org/docs/classes/Boundary3D.html).
+Like everything in ````xeogl````, all properties on a Geometry are dynamically editable. When no shape is specified, a Geometry will be a 2x2x2 box by default. A [````Scene````](http://xeogl.org/docs/classes/Scene.html) provides a 2x2x2 box for [Entites](http://xeogl.org/docs/classes/Entity.html) default to when they are not configured with a Geometry. A Geometry provides its local-space boundary as a [Boundary3D](http://xeogl.org/docs/classes/Boundary3D.html).
 
 <img src="http://xeogl.org/assets/images/Geometry.png"></img>
 
@@ -18,7 +18,7 @@ var entity = new xeogl.Entity({
 
 ### Scene's Default Geometry
 
- If you create an [Entity](http://xeogl.org/docs/classes/Entity.html) with no Geometry, it will inherit its [Scene](http://xeogl.org/docs/classes/Scene.html)'s default {{#crossLink "Scene/geometry:property"}}{{/crossLink}}, which is a 2x2x2 triangle mesh box:
+ If you create an [Entity](http://xeogl.org/docs/classes/Entity.html) with no Geometry, it will inherit its [````Scene````](http://xeogl.org/docs/classes/Scene.html)'s default {{#crossLink "Scene/geometry:property"}}{{/crossLink}}, which is a 2x2x2 triangle mesh box:
 
 ```` javascript 
 var entity2 = new xeogl.Entity(); 
@@ -26,7 +26,7 @@ var entity2 = new xeogl.Entity();
 
 ### Sharing Geometries among Entities
 
- xeogl components can be shared among multiple [Entites](http://xeogl.org/docs/classes/Entity.html). For components like Geometry and [Scene](http://xeogl.org/docs/classes/Texture.html), this can provide significant memory and performance savings. To render the example below, xeogl will issue two draw WebGL calls, one for each [Scene](http://xeogl.org/docs/classes/Entity.html), but will only need to bind the Geometry's arrays once on WebGL.
+ ````xeogl```` components can be shared among multiple [Entites](http://xeogl.org/docs/classes/Entity.html). For components like Geometry and [````Scene````](http://xeogl.org/docs/classes/Texture.html), this can provide significant memory and performance savings. To render the example below, ````xeogl```` will issue two draw WebGL calls, one for each [````Scene````](http://xeogl.org/docs/classes/Entity.html), but will only need to bind the Geometry's arrays once on WebGL.
 
 ```` javascript  
 var boxGeometry = new xeogl.BoxGeometry();
@@ -98,7 +98,7 @@ var quadGeometry = new xeogl.Geometry({
 
 ### Editing Geometry
 
- Recall that everything in xeogl is dynamically editable. Let's update the [indices](http://xeogl.org/docs/classes/Geometry.html#property_indices) to reverse the direction of the triangles:
+ Recall that everything in ````xeogl```` is dynamically editable. Let's update the [indices](http://xeogl.org/docs/classes/Geometry.html#property_indices) to reverse the direction of the triangles:
 
  ````javascript  
 customGeometry.indices = [ 2, 1, 0, 3, 2, 0 ];  
@@ -125,7 +125,7 @@ customGeometry.indices = [ 2, 1, 0, 3, 2, 0 ];
 
 ### Setting front-face vertex winding
 
- The <a href="https://www.opengl.org/wiki/Face_Culling" target="other">vertex winding order</a> of each face determines whether it's a front-face or a back-face. By default, xeogl considers faces to be front-faces if they have a counter-clockwise winding order, but we can change that by setting the [Modes](http://xeogl.org/docs/classes/Modes.html) [frontFaces](http://xeogl.org/docs/classes/Modes.html#property_frontface) property:
+ The <a href="https://www.opengl.org/wiki/Face_Culling" target="other">vertex winding order</a> of each face determines whether it's a front-face or a back-face. By default, ````xeogl```` considers faces to be front-faces if they have a counter-clockwise winding order, but we can change that by setting the [Modes](http://xeogl.org/docs/classes/Modes.html) [frontFaces](http://xeogl.org/docs/classes/Modes.html#property_frontface) property:
 
  ````javascript  
  // Set the winding order for front-faces to clockwise  
