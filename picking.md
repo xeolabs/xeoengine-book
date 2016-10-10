@@ -1,6 +1,6 @@
 # Picking
 
-## Canvas Picking 
+## Canvas Picking {#canvaspicking}
  
 #### Canvas Picking Entities 
 The most basic type of picking involves finding the closest entity at the given canvas coordinates. This is equivalent to firing a ray through the canvas, down the negative Z-axis, to find the closest intersecting entity. However, this type of  picking only finds the entity and does not return any information about the ray intersection.
@@ -54,16 +54,36 @@ var hit = gearbox.scene.pick({
 
 This time, in addition to the entity, the hit result will contain information about the position that we picked on the entity's surface:
 
-````javascriptif (hit) { // Picked an Entity
+````javascript
+if (hit) { // Picked an Entity
 
- var entity = hit.entity; // Entity we picked var primitive = hit.primitive; // Type of primitive we picked, usually "triangles" var primIndex = hit.primIndex; // Triangle's first index within geometry indices var indices = hit.indices; // Triangle's vertex indices (a three element array) var localPos = hit.localPos; // Local-space position within the triangle var worldPos = hit.worldPos; // World-space position within the triangle var viewPos = hit.viewPos; // View-space position within the triangle var bary = hit.bary; // Barycentric coordinate within the triangle var normal = hit.normal; // Interpolated normal vector within the triangle var uv = hit.uv; // Interpolated UVs within the triangle}````
+ var entity = hit.entity; // Entity we picked 
+ var primitive = hit.primitive; // Type of primitive we picked, usually "triangles" 
+ var primIndex = hit.primIndex; // Triangle's first index within geometry indices 
+ var indices = hit.indices; // Triangle's vertex indices (a three element array) 
+ var localPos = hit.localPos; // Local-space position within the triangle 
+ var worldPos = hit.worldPos; // World-space position within the triangle 
+ var viewPos = hit.viewPos; // View-space position within the triangle 
+ var bary = hit.bary; // Barycentric coordinate within the triangle 
+ var normal = hit.normal; // Interpolated normal vector within the triangle 
+ var uv = hit.uv; // Interpolated UVs within the triangle}
+````
 
-xeogl performs the following steps for this type of picking: 1. User ray-picks at given canvas coordinates.2. Do a render pass to a hidden frame buffer, rendering each entity with a unique colour. Each colour is the RBGA-encoded index of the entity within xeogl's internal display list.3. Read the colour from the framebuffer at the canvas coordinates, map the colour back to the entity. 4. Clear the framebuffer, and render a second render pass, this time rendering only the triangles of the picked entity, each with a unique color. Each colour is the RBGA-encoded index of the triangle within the entity's geometry.5. Read the colour from the framebuffer at the canvas coordinates, map the colour back to the triangle.6. Now that we have the entity and the triangle, make a ray in clip-space from the eye position that passes through the near projection plane, then unproject that ray to get a ray in the entity's local coordinate space.7. Find the intersection of the ray with the triangle in local space.8. Find the barycentric coordinates of the local-space intersection, then use those to interpolate within the triangle to find the normal vector and UV coordinates at that position.
+xeogl performs the following steps for this type of picking: 
+
+ 1. User ray-picks at given canvas coordinates.
+ 2. Do a render pass to a hidden frame buffer, rendering each entity with a unique colour. Each colour is the RBGA-encoded index of the entity within xeogl's internal display list.
+ 3. Read the colour from the framebuffer at the canvas coordinates, map the colour back to the entity. 
+ 4. Clear the framebuffer, and render a second render pass, this time rendering only the triangles of the picked entity, each with a unique color. Each colour is the RBGA-encoded index of the triangle within the entity's geometry.
+ 5. Read the colour from the framebuffer at the canvas coordinates, map the colour back to the triangle.
+ 6. Now that we have the entity and the triangle, make a ray in clip-space from the eye position that passes through the near projection plane, then unproject that ray to get a ray in the entity's local coordinate space.
+ 7. Find the intersection of the ray with the triangle in local space.
+ 8. Find the barycentric coordinates of the local-space intersection, then use those to interpolate within the triangle to find the normal vector and UV coordinates at that position.
 
 For step (4) we lazy-compute geometry arrays to render individually-colored triangles for the entity. This does have a small performance hit the first time you pick the entity, but those arrays are retained for the entity and reused as you continue to pick it.
 
 
-##Ray Casting
+##Ray Casting {#canvaspicking}
 
 #### Ray Casting Entities
 
