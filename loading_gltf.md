@@ -1,16 +1,16 @@
 # Importing glTF
 
-Load a glTF file by creating a [Model](http://xeoengine.org/docs/classes/Model.html) component:
+Load a glTF file by creating a [Model](http://xeogl.org/docs/classes/Model.html) component:
 
 ```javascript
-var gearbox = new XEO.Model({
+var gearbox = new xeogl.Model({
    id: "gearbox",
    src: "models/gltf/gearbox/gearbox_assy.gltf"
 });
 ```
 
-We've created this particular Model within xeoEngine's default [Scene](http://xeoengine.org/docs/classes/Scene.html), 
-since we didn't specify a Scene to its constructor. Internally, xeoEngine has lazy-created the default Scene at this point, 
+We've created this particular Model within xeogl's default [Scene](http://xeogl.org/docs/classes/Scene.html), 
+since we didn't specify a Scene to its constructor. Internally, xeogl has lazy-created the default Scene at this point, 
 along with its HTML canvas, which fills the available space in the page. We use the default Scene in most examples in 
 order to keep the code simple.
 
@@ -37,5 +37,5 @@ To switch a Model to a different glTF file, simply update its `src` property:
 gearbox.src = "models/gltf/buggy/buggy.gltf"
 ```
 
-Recall that almost everything in xeoEngine is dynamically editable.
+Recall that almost everything in xeogl is dynamically editable.
 

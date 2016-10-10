@@ -8,23 +8,23 @@ An ObjGeometry is a Geometry that's loaded from a
 ## Usage
 
 ````javascript
-var entity = new XEO.Entity({
+var entity = new xeogl.Entity({
 
-    geometry: new XEO.OBJGeometry({
+    geometry: new xeogl.OBJGeometry({
         src: "models/obj/raptor.obj"
     }),
 
-    material: new XEO.PhongMaterial({
-        diffuseMap: new XEO.Texture({
+    material: new xeogl.PhongMaterial({
+        diffuseMap: new xeogl.Texture({
             src: "models/obj/raptor.jpg"
         })
     }),
 
-    transform: new XEO.Rotate({
+    transform: new xeogl.Rotate({
         xyz: [1, 0, 0],
         angle: 0,
 
-        parent: new XEO.Translate({
+        parent: new xeogl.Translate({
             xyz: [10, 3, 10]
         })
     })
@@ -32,7 +32,7 @@ var entity = new XEO.Entity({
 
 // When the OBJGeometry has loaded, fly the camera to fit the entity in view
 
-var cameraFlight = new XEO.CameraFlight();
+var cameraFlight = new xeogl.CameraFlight();
 
 entity.geometry.on("loaded", function () {
 

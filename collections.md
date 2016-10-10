@@ -3,21 +3,21 @@
 A Collection is a general-purpose group of Components.
 
  ````javascript
- var material = new XEO.PhongMaterial({
+ var material = new xeogl.PhongMaterial({
      id: "myMaterial",
      diffuse: [0.5, 0.5, 0.0]
  });
 
- var geometry = new XEO.BoxGeometry();
+ var geometry = new xeogl.BoxGeometry();
 
- var entity = new XEO.Entity({
+ var entity = new xeogl.Entity({
     id: "myEntity",
     material: material,
     geometry: geometry
  });
 
  // Collection initialized with three components
- var collection1 = new XEO.Collection({ 
+ var collection1 = new xeogl.Collection({ 
      components: [
          "myMaterial",
          geometry,
@@ -29,11 +29,11 @@ A Collection is a general-purpose group of Components.
 
 
  ````javascript
- var collection2 = new XEO.Collection();
+ var collection2 = new xeogl.Collection();
 
  collection2.add([  // Add two components
     geometry,
-    "XEO.Entity",
+    "xeogl.Entity",
  ]);
  ````
 
@@ -43,7 +43,7 @@ A Collection is a general-purpose group of Components.
 
  ````javascript
  collection1.iterate(function(component) {
-     if (component.isType("XEO.Entity")) {
+     if (component.isType("xeogl.Entity")) {
          this.log("Found the Entity: " + component.id);
      }
      //..
@@ -53,7 +53,7 @@ A Collection is a general-purpose group of Components.
  A Collection also registers its components by type:
 
  ````javascript
- var entities = collection1.types["XEO.Entity"];
+ var entities = collection1.types["xeogl.Entity"];
  var theEntity = entities["myEntity"];
  ````
 
@@ -69,22 +69,22 @@ collection1.remove("myMaterial");
 collection1.remove([geometry, myEntity]); 
 
 // Remove all Geometries
-collection2.remove("XEO.Geometry"); 
+collection2.remove("xeogl.Geometry"); 
 ````
 
 ### Getting the 3D Boundary of a Collection
 
-A [CollectionBoundary](http://xeoengine.org/docs/classes/CollectionBoundary.html) provides a [Boundary3D](http://xeoengine.org/docs/classes/Boundary3D.html) that
- dynamically fits to the collective World-space boundary of all the Components in a [Collection](http://xeoengine.org/docs/classes/Collection.html).
+A [CollectionBoundary](http://xeogl.org/docs/classes/CollectionBoundary.html) provides a [Boundary3D](http://xeogl.org/docs/classes/Boundary3D.html) that
+ dynamically fits to the collective World-space boundary of all the Components in a [Collection](http://xeogl.org/docs/classes/Collection.html).
 
  ````javascript
- var collectionBoundary = new XEO.CollectionBoundary({
+ var collectionBoundary = new xeogl.CollectionBoundary({
     collection: collection1
  });
 
  var worldBoundary = collectionBoundary.worldBoundary;
  ````
- The [Boundary3D](http://xeoengine.org/docs/classes/Boundary3D.html) will automatically update whenever we add, remove or update any Components that have World-space boundaries. We can subscribe to updates on it like so:
+ The [Boundary3D](http://xeogl.org/docs/classes/Boundary3D.html) will automatically update whenever we add, remove or update any Components that have World-space boundaries. We can subscribe to updates on it like so:
 
  ````javascript
  worldBoundary.on("updated", function() {

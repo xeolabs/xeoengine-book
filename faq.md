@@ -2,9 +2,9 @@
 
 ### What is WebGL?
 
-### What's special about xeoEngine?
+### What's special about xeogl?
 
-### Can I make games with xeoEngine?
+### Can I make games with xeogl?
 
 
 

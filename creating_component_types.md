@@ -1,18 +1,18 @@
 # Creating a New Component Type 
 
-We can extend xeoEngine's component classes to create our own custom component types. The basic [Component](http://xeoengine.org/docs/classes/Component.html) class has various template methods which we can override in our component class to hook it into xeoEngine.
+We can extend xeogl's component classes to create our own custom component types. The basic [Component](http://xeogl.org/docs/classes/Component.html) class has various template methods which we can override in our component class to hook it into xeogl.
 
-Let's start simple, with a custom component that renders a torus with a color that we can dynamically update. Then in subsequent sections, we'll create versions of the component that plug into the various other bits of xeoEngine component functionality.
+Let's start simple, with a custom component that renders a torus with a color that we can dynamically update. Then in subsequent sections, we'll create versions of the component that plug into the various other bits of xeogl component functionality.
 
 ## Creating the Component
 
-The source code for our first component is shown below. You can also run it live [here](http://xeoengine.org/examples/index.html#extending_customComponent_basic).
+The source code for our first component is shown below. You can also run it live [here](http://xeogl.org/examples/index.html#extending_customComponent_basic).
 
 ````javascript
-XEO.ColoredTorus = XEO.Component.extend({
+xeogl.ColoredTorus = xeogl.Component.extend({
 
     // Class name
-    type: "XEO.ColoredTorus",
+    type: "xeogl.ColoredTorus",
 
     // Optional component ID
     id: "myColoredTorus", 
@@ -22,9 +22,9 @@ XEO.ColoredTorus = XEO.Component.extend({
 
         this._super(cfg); // Call base class constructor
 
-        this._torus = new XEO.Entity({
-            geometry: new XEO.TorusGeometry({ radius: 2, tube:.6 }),
-            material: new XEO.PhongMaterial({
+        this._torus = new xeogl.Entity({
+            geometry: new xeogl.TorusGeometry({ radius: 2, tube:.6 }),
+            material: new xeogl.PhongMaterial({
                 diffuse: [0.5, 0.5, 0.5]
             })
         });
@@ -55,7 +55,7 @@ XEO.ColoredTorus = XEO.Component.extend({
 });
 ````
 
-The ````type```` property is the name of the class. xeoEngine uses this to register instances of the the component, and also when it needs to serialize and deserialize them as JSON (which we'll look at in one of the following sections).
+The ````type```` property is the name of the class. xeogl uses this to register instances of the the component, and also when it needs to serialize and deserialize them as JSON (which we'll look at in one of the following sections).
 
 The ````_init()```` method is the component's constructor. The first thing we usually do in this method is call the super class' constructor with a call to  ````this._super(cfg)````. Then we create our component's internal bits.
 
@@ -68,18 +68,18 @@ Finally, the ````_destroy```` mathod is the component's destructor. In our case,
 Let's instantiate our new component class: 
 
 ````javascript
-var coloredTorus = new XEO.ColoredTorus({
+var coloredTorus = new xeogl.ColoredTorus({
     color: [0.3, 1.0, 0.3]
 });
 ````
 
 That's going to call our ````_init()```` method, passing in an initial value for ````color````, which gets passed into the setter method for that property.
 
-Since we didn't explicitly provide a [Scene](http://xeoengine.org/docs/classes/Scene.html) for our component, xeoEngine will create it within its default Scene, which it instantiates on-demand as soon as it's needed. Let's get that Scene off our component, then find our component by its type within that Scene:
+Since we didn't explicitly provide a [Scene](http://xeogl.org/docs/classes/Scene.html) for our component, xeogl will create it within its default Scene, which it instantiates on-demand as soon as it's needed. Let's get that Scene off our component, then find our component by its type within that Scene:
 
 ````javascript
 var scene = coloredTorus.scene;
-var coloredTorii = scene.types["XEO.ColoredTorus"];
+var coloredTorii = scene.types["xeogl.ColoredTorus"];
 var myColoredTorus = coloredTorii["myColoredTorus"];
 ````
 
@@ -109,22 +109,22 @@ Take a look at the following example, which modifies the previous example to use
 
 To keep code examples simple, we're going to use the ````create()```` method in the rest of our custom component examples.
 
-[[Run this example](http://xeoengine.org/examples/index.html#extending_customComponent_childCleanup)]
+[[Run this example](http://xeogl.org/examples/index.html#extending_customComponent_childCleanup)]
 
 
 ```javascript
-XEO.ColoredTorus = XEO.Component.extend({
+xeogl.ColoredTorus = xeogl.Component.extend({
 
-    type: "XEO.ColoredTorus",
+    type: "xeogl.ColoredTorus",
 
     _init: function (cfg) {
 
-        this._torus = this.create(XEO.Entity, {
-            geometry: this.create(XEO.TorusGeometry, {
+        this._torus = this.create(xeogl.Entity, {
+            geometry: this.create(xeogl.TorusGeometry, {
                 radius: 2,
                 tube: 0.6
             }),
-            material: this.create(XEO.PhongMaterial, {
+            material: this.create(xeogl.PhongMaterial, {
                 diffuse: [0.5, 0.5, 0.5]
             })
         });
@@ -158,19 +158,19 @@ Our previous two custom component examples rendered a torus object, with a color
 
 Let's take the previous example and add a line of code to fire a "color" event each time the ````color```` property is updated.
 
-[[Run this example](http://xeoengine.org/examples/index.html#extending_customComponent_changeEvents)]
+[[Run this example](http://xeogl.org/examples/index.html#extending_customComponent_changeEvents)]
 
 ```javascript
-XEO.ColoredTorus = XEO.Component.extend({
+xeogl.ColoredTorus = xeogl.Component.extend({
 
-    type: "XEO.ColoredTorus",
+    type: "xeogl.ColoredTorus",
 
     id: "myColoredTorus", // Optional
 
     _init: function (cfg) {
-        this._torus = new XEO.Entity({
-            geometry: new XEO.TorusGeometry({ radius: 2, tube:.6 }),
-            material: new XEO.PhongMaterial({
+        this._torus = new xeogl.Entity({
+            geometry: new xeogl.TorusGeometry({ radius: 2, tube:.6 }),
+            material: new xeogl.PhongMaterial({
                 diffuse: [0.5, 0.5, 0.5]
             })
         });
@@ -197,7 +197,7 @@ XEO.ColoredTorus = XEO.Component.extend({
 Now, to show how it works, let's instantiate our component:
 
 ```js
-var coloredTorus = new XEO.ColoredTorus({
+var coloredTorus = new xeogl.ColoredTorus({
     color: [0.3, 1.0, 0.3]
 });
 ```
@@ -222,7 +222,7 @@ setInterval(function () {
 }, 1000);
 ```
 
-In the spirit of the [Open/Closed Principle](https://en.wikipedia.org/wiki/Open/closed_principle), pretty much everything in xeoEngine fires change events when updated, however your custom components don't neccessarily need to.
+In the spirit of the [Open/Closed Principle](https://en.wikipedia.org/wiki/Open/closed_principle), pretty much everything in xeogl fires change events when updated, however your custom components don't neccessarily need to.
 
 
 ## Scheduling Tasks
@@ -230,15 +230,15 @@ In the spirit of the [Open/Closed Principle](https://en.wikipedia.org/wiki/Open/
 ```javascript
 // Define the ResizableTorus component class
 
-XEO.ResizableTorus = XEO.Component.extend({
+xeogl.ResizableTorus = xeogl.Component.extend({
 
-    type: "XEO.ResizableTorus",
+    type: "xeogl.ResizableTorus",
 
     _init: function (cfg) {
 
-        this._torus = new XEO.Entity({
-            geometry: new XEO.Geometry(),
-            material: new XEO.PhongMaterial({
+        this._torus = new xeogl.Entity({
+            geometry: new xeogl.Geometry(),
+            material: new xeogl.PhongMaterial({
                 diffuse: [0.5, 0.5, 1.0]
             })
         });
@@ -246,11 +246,11 @@ XEO.ResizableTorus = XEO.Component.extend({
         this.radius = cfg.radius
     },
 
-    // This executes the task that this ResizableTorus schedules to the xeoEngine task queue,
+    // This executes the task that this ResizableTorus schedules to the xeogl task queue,
     // in this case to (re)build its torus-shaped geometry. Don't worry about the contents
     // of this function. It's just something computationally intensive that needs to be scheduled
     // to execute asynchronously via the task queue so that it doesn't disrupt the smoothness of
-    // xeoEngine's "game loop".
+    // xeogl's "game loop".
 
     _update: function () {
 
@@ -274,7 +274,7 @@ XEO.ResizableTorus = XEO.Component.extend({
                 z = tube * Math.sin(v);
                 positions.push(x); positions.push(y); positions.push(z);
                 uvs.push(1 - (i / tubeSegments)); uvs.push(1 - (j / radialSegments));
-                vec = XEO.math.normalizeVec3(XEO.math.subVec3([x, y, z], [centerX, centerY, centerZ], []), []);
+                vec = xeogl.math.normalizeVec3(xeogl.math.subVec3([x, y, z], [centerX, centerY, centerZ], []), []);
                 normals.push(vec[0]); normals.push(vec[1]); normals.push(vec[2]);
             }
         }
@@ -305,7 +305,7 @@ XEO.ResizableTorus = XEO.Component.extend({
             set: function (radius) {
                 this._radius = radius || 1;
 
-                // Schedule our _update() method to the xeoEngine task queue,
+                // Schedule our _update() method to the xeogl task queue,
                 // to execute at the next available opportunity
                 this._scheduleUpdate();
             },
@@ -317,8 +317,8 @@ XEO.ResizableTorus = XEO.Component.extend({
     }
 });
 
-// Instantiate a ResizableTorus (in the default XEO.Scene)
-var resizableTorus = new XEO.ResizableTorus({
+// Instantiate a ResizableTorus (in the default xeogl.Scene)
+var resizableTorus = new xeogl.ResizableTorus({
     radius: 1
 });
 
@@ -332,18 +332,18 @@ setInterval(function () {
 ## Making Serializable
 
 ````javascript
-XEO.ColoredTorus = XEO.Component.extend({
+xeogl.ColoredTorus = xeogl.Component.extend({
 
-    type: "XEO.ColoredTorus",
+    type: "xeogl.ColoredTorus",
 
     _init: function (cfg) {
 
-        this._torus = new XEO.Entity({
-            geometry: new XEO.TorusGeometry({ 
+        this._torus = new xeogl.Entity({
+            geometry: new xeogl.TorusGeometry({ 
                 radius: 2, 
                 tube:.6 
             }),
-            material: new XEO.PhongMaterial({
+            material: new xeogl.PhongMaterial({
                 diffuse: [0.5, 0.5, 0.5]
             })
         });

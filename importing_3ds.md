@@ -8,24 +8,24 @@ A **Nintendo3DSGeometry** is a Geometry that's loaded from a
 ## Usage
 
 ````javascript
-var entity = new XEO.Entity({
+var entity = new xeogl.Entity({
 
-    geometry: new XEO.Nintendo3DSGeometry({
+    geometry: new xeogl.Nintendo3DSGeometry({
         src: "models/3ds/lexus.3ds"
     }),
 
-    material: new XEO.PhongMaterial({
-        diffuseMap: new XEO.Texture({
+    material: new xeogl.PhongMaterial({
+        diffuseMap: new xeogl.Texture({
             src: "models/3ds/lexus.jpg"
         }),
         specular: [0, 0, 0]
     }),
 
     // We need to rotate this particular .3DS model
-    transform: new XEO.Rotate({
+    transform: new xeogl.Rotate({
         xyz: [1,0,0],
         angle: -90,
-        parent: new XEO.Rotate({
+        parent: new xeogl.Rotate({
             xyz: [0,1,0],
             angle: 90
         })
@@ -35,7 +35,7 @@ var entity = new XEO.Entity({
 // When the Nintendo3DSGeometry has loaded,
 // fly the camera to fit the entity in view
 
-var cameraFlight = new XEO.CameraFlight();
+var cameraFlight = new xeogl.CameraFlight();
 
 entity.geometry.on("loaded", function () {
     cameraFlight.flyTo({

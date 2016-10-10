@@ -1,17 +1,17 @@
 # ZSpace Effect
 
-A **ZSpace** component makes its [Scene](http://xeoengine.org/docs/classes/Scene.html) viewable with a zSpace viewer.
+A **ZSpace** component makes its [Scene](http://xeogl.org/docs/classes/Scene.html) viewable with a zSpace viewer.
 
-* Plug-and-play: just create a ZSpace component within your xeoEngine [Scene](http://xeoengine.org/docs/classes/Scene.html) to make it viewable with a ZSpace display.
+* Plug-and-play: just create a ZSpace component within your xeogl [Scene](http://xeogl.org/docs/classes/Scene.html) to make it viewable with a ZSpace display.
 * Activate or disable the ZSpace component at any time to switch between zSpace mode and normal mono viewing mode.
 * Requires WebGL2 and WebVR support, which you'll have if you're running on a zSpace viewer.
-* Attaches to a [Camera](http://xeoengine.org/docs/classes/Camera.html), defaults to its [Scene](http://xeoengine.org/docs/classes/Scene.html)'s default
- [Scene](http://xeoengine.org/docs/classes/Scene.html#property_camera) if none is specified.
-* Don't attach different view or projection transform components to the [Camera](http://xeoengine.org/docs/classes/Camera.html) while the ZSpace component is active.
-* You can however update the [Camera](http://xeoengine.org/docs/classes/Camera.html)'s view transformation at any time, to move the
+* Attaches to a [Camera](http://xeogl.org/docs/classes/Camera.html), defaults to its [Scene](http://xeogl.org/docs/classes/Scene.html)'s default
+ [Scene](http://xeogl.org/docs/classes/Scene.html#property_camera) if none is specified.
+* Don't attach different view or projection transform components to the [Camera](http://xeogl.org/docs/classes/Camera.html) while the ZSpace component is active.
+* You can however update the [Camera](http://xeogl.org/docs/classes/Camera.html)'s view transformation at any time, to move the
  viewpoint around.
 
- <img src="http://xeoengine.org/assets/images/ZSpace.png"></img>
+ <img src="http://xeogl.org/assets/images/ZSpace.png"></img>
 
 ## Limitations
 
@@ -30,22 +30,22 @@ A **ZSpace** component makes its [Scene](http://xeoengine.org/docs/classes/Scene
 
 ## Usage
 
- In the following example we're going to set up a ZSpace-viewable scene with xeoEngine, defining the scene step-by-step to
- emphasize the plug-and-play design of xeoEngine's API.
+ In the following example we're going to set up a ZSpace-viewable scene with xeogl, defining the scene step-by-step to
+ emphasize the plug-and-play design of xeogl's API.
 
 #### 1. Create an entity
 
- First we'll create a simple torus-shaped [Entity](http://xeoengine.org/docs/classes/Entity.html), which will be within xeoEngine's default
- [Scene](http://xeoengine.org/docs/classes/Scene.html), since we're not defining the [Scene](http://xeoengine.org/docs/classes/Scene.html) component
- explicitly. Our [Entity](http://xeoengine.org/docs/classes/Entity.html) is also implicitly connected to the
- [Scene](http://xeoengine.org/docs/classes/Scene.html)'s default [Camera](http://xeoengine.org/docs/classes/Camera.html), since we didn't create
- a [Camera](http://xeoengine.org/docs/classes/Camera.html) for it either.
+ First we'll create a simple torus-shaped [Entity](http://xeogl.org/docs/classes/Entity.html), which will be within xeogl's default
+ [Scene](http://xeogl.org/docs/classes/Scene.html), since we're not defining the [Scene](http://xeogl.org/docs/classes/Scene.html) component
+ explicitly. Our [Entity](http://xeogl.org/docs/classes/Entity.html) is also implicitly connected to the
+ [Scene](http://xeogl.org/docs/classes/Scene.html)'s default [Camera](http://xeogl.org/docs/classes/Camera.html), since we didn't create
+ a [Camera](http://xeogl.org/docs/classes/Camera.html) for it either.
 
  ````javascript
- var entity = new XEO.Entity({
-     geometry: new XEO.TorusGeometry(),
-     material: new XEO.PhongMaterial({
-        diffuseMap: new XEO.Texture({
+ var entity = new xeogl.Entity({
+     geometry: new xeogl.TorusGeometry(),
+     material: new xeogl.PhongMaterial({
+        diffuseMap: new xeogl.Texture({
             src: "textures/diffuse/uvGrid2.jpg"
         })
      })
@@ -56,9 +56,9 @@ A **ZSpace** component makes its [Scene](http://xeoengine.org/docs/classes/Scene
 
  At this point we've got a textured torus floating in the middle of the canvas (which is also created automatically
  since we didn't specify one). Now we'll create a
- [CameraControl](http://xeoengine.org/docs/classes/CameraControl.html), which allows us to move our viewpoint around with the mouse and
- keyboard. This component is also within xeoEngine's default [Scene](http://xeoengine.org/docs/classes/Scene.html) and connected to the
- [Scene](http://xeoengine.org/docs/classes/Scene.html)'s default [Camera](http://xeoengine.org/docs/classes/Camera.html).
+ [CameraControl](http://xeogl.org/docs/classes/CameraControl.html), which allows us to move our viewpoint around with the mouse and
+ keyboard. This component is also within xeogl's default [Scene](http://xeogl.org/docs/classes/Scene.html) and connected to the
+ [Scene](http://xeogl.org/docs/classes/Scene.html)'s default [Camera](http://xeogl.org/docs/classes/Camera.html).
 
  ````javascript
  new CameraControl();
@@ -66,7 +66,7 @@ A **ZSpace** component makes its [Scene](http://xeoengine.org/docs/classes/Scene
 
 #### 3. Enable ZSpace viewing
 
-Now we can orbit, pan and zoom around the torus with the mouse and keyboard. Let's view it on a ZSpace display by simply dropping a ZSpace component into our default [Scene](http://xeoengine.org/docs/classes/Scene.html).
+Now we can orbit, pan and zoom around the torus with the mouse and keyboard. Let's view it on a ZSpace display by simply dropping a ZSpace component into our default [Scene](http://xeogl.org/docs/classes/Scene.html).
 
  ````javascript
  var zspace = new ZSpace();
@@ -93,7 +93,7 @@ zspace.on("supported", function (supported) {
     if (!supported) {
 
         // Not a zSpace device
-        // Log error on the XEO.ZSpace component
+        // Log error on the xeogl.ZSpace component
         this.error("This computer is not a ZSpace viewer!"); 
     }
 });
@@ -145,7 +145,7 @@ Note that these properties only have meaningful values once the ZSpace has fired
  });
  ````
 
- Picking an [Entity](http://xeoengine.org/docs/classes/Entity.html) with the stylus when button 0 is pressed:
+ Picking an [Entity](http://xeogl.org/docs/classes/Entity.html) with the stylus when button 0 is pressed:
 
  ````javascript
  zspace.on("stylusButton0", function() {

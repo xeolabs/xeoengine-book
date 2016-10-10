@@ -12,9 +12,9 @@ First, let's create an [Entity]() and give it a dynamically-updated [Translate](
 glide across the scene.  
 
 ```` javascript
-var entity = new XEO.Entity({
-    geometry: new XEO.BoxGeometry(),
-    transform: new XEO.Translate({
+var entity = new xeogl.Entity({
+    geometry: new xeogl.BoxGeometry(),
+    transform: new xeogl.Translate({
         xyz: [-5, 0, 0]
     })
 });
@@ -79,25 +79,25 @@ entity.scene.on("tick", function() {
 
 ### World Space Collection Boundaries
 
-Sometimes we need to automatically track the collective World-space boundary of a group of [Entities](). The xeoEngine 
+Sometimes we need to automatically track the collective World-space boundary of a group of [Entities](). The xeogl 
 [CollectionBoundary]() component makes this easy and efficient. 
 
 First, we create a Collection to hold our Entities, then attach a CollectionBoundary, get the CollectionBoundary's 
 Boundary3D, and then at any time we can query the Boundary3D for its extents. We can also attach an "updated" listener 
 to the Boundary3D, to get a notification whenever its extents change. 
 
-![](http://xeoengine.org/assets/images/CollectionBoundary.png)
+![](http://xeogl.org/assets/images/CollectionBoundary.png)
 
 To show it this works, let's start by creating a [Collection]() to hold some [Entities]():
 
 ````javascript
-var collection = new XEO.Collection();
+var collection = new xeogl.Collection();
 ````
 
 Then we'll attach a [CollectionBoundary]() to our [Collection]():
 
 ````javascript
-var collectionBoundary = new XEO.CollectionBoundary({    
+var collectionBoundary = new xeogl.CollectionBoundary({    
     collection: collection});
 ````
 
@@ -117,34 +117,34 @@ Finally, we'll add three [Entities]() to our [Collection](), which will cause ou
 to expand to fit them, which in turn fire our [Boundary3D]()'s "updated" listener.
 
 ````javascript
-var torus = new XEO.Entity({ 
+var torus = new xeogl.Entity({ 
     // Red torus    
-    geometry: new XEO.TorusGeometry(),    
-    material: new XEO.PhongMaterial({        
+    geometry: new xeogl.TorusGeometry(),    
+    material: new xeogl.PhongMaterial({        
         diffuse: [1.0, 0.3, 0.3]    
     }),    
-    transform: new XEO.Translate({        
+    transform: new xeogl.Translate({        
         xyz: [-10, 0, 0]    
     })
 });
 
-var sphere = new XEO.Entity({ 
+var sphere = new xeogl.Entity({ 
     // Green sphere    
-    geometry: new XEO.SphereGeometry(),    
-    material: new XEO.PhongMaterial({        
+    geometry: new xeogl.SphereGeometry(),    
+    material: new xeogl.PhongMaterial({        
         diffuse: [0.3, 1.0, 0.3]    }),    
-    transform: new XEO.Translate({        
+    transform: new xeogl.Translate({        
         xyz: [0, 0, 0]    
     })
 });
 
-var box = new XEO.Entity({ 
+var box = new xeogl.Entity({ 
     // Blue box    
-    geometry: new XEO.BoxGeometry(),    
-    material: new XEO.PhongMaterial({        
+    geometry: new xeogl.BoxGeometry(),    
+    material: new xeogl.PhongMaterial({        
         diffuse: [0.3, 0.3, 1.0]    
     }),    
-    transform: new XEO.Translate({       
+    transform: new xeogl.Translate({       
         xyz: [10, 0, 0]    
     })
 });
@@ -156,7 +156,7 @@ collection.add(box);
 
 #### Buffering Goodness
 Note that, even though we added three [Entities]() to the [Collection](), our "updated" listener will only fire once. 
-That's thanks to the way that xeoEngine buffers everything as tasks to it's internal FIFO task queue. The [Collection]() 
+That's thanks to the way that xeogl buffers everything as tasks to it's internal FIFO task queue. The [Collection]() 
 fires an "added" event for each Entity we add to it, which triggers the CollectionBoundary to schedule a rebuild task to 
 the queue **if it hasn't scheduled the rebuild already**. In short, this buffering system means that three Entity 
 additions to the [Collection]() triggers just one rebuild of the [CollectionBoundary](). 
